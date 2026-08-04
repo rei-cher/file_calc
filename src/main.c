@@ -5,7 +5,8 @@
  */
 
 #include <stdlib.h>
-#include "directory.h"
+#include <stdio.h>
+#include "directories.h"
 #include "dir_status.h"
 
 #define PROGRAM_NAME 0
@@ -29,12 +30,12 @@ int main(int argc, char ** argv)
 
 	if (NUMBER_OF_ARGUMENTS != argc)
 	{
-		printf("Incorrect number of argumentn");
+		printf(stderr, "Incorrect number of argumentn");
 		print_usage(argv[PROGRAM_NAME]);
 		goto END;
 	}
 
-	input_dir_status = validate_directory(argv[INPUT_DIR]);
+	input_dir_status = validate_directories(argv[INPUT_DIR]);
 
 	if (DIR_STATUS_OK != input_dir_status)
 	{
@@ -42,15 +43,17 @@ int main(int argc, char ** argv)
 		goto END;
 	}
 
-	output_dir_status = validate_directory(argv[OUTPUT_DIR]);
-	if (DIR_STATUS_DOESNT_EXIST != output_dir_status)
+	output_dir_status = validate_directories(argv[OUTPUT_DIR]);
+
+	if (DIR_STATUS_DOESNT_EXIST == output_dir_status)
 	{
-		status = create_dir(argv[OUTPUT_DIR]);
+		output_dir_status = create_dir(argv[OUTPUT_DIR]);
 	}
 
 	if (DIR_STATUS_OK != output_dir_status)
 	{
 		print_error(output_dir_status);
+		goto END;
 	}
 
 END:
