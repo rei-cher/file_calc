@@ -38,8 +38,7 @@ typedef struct
 
 equation_status_t read_equation(FILE * p_file, equation_t * p_equation);
 
-equation_status_t calculate_equation(const equation_t * p_equation,
-									 solved_t * p_solved);
+equation_status_t calculate_equations(FILE * p_file, uint64_t num_of_eq);
 
 #endif
 

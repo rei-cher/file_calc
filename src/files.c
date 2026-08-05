@@ -129,10 +129,10 @@ file_status_t process_file(const char * p_filename)
 		goto END;
 	}
 
-	// TODO: calculate() function to calculate all operations from the 'good' files
-	for (int i = 0; i <= file_header.num_of_eq; i++)
+	// TODO: calcualte_equations -> implement accepting pointer to output file
+	if (FILE_STATUS_OK == status)
 	{
-		calculate_equation();
+		calculate_equations(p_file, file_header.num_of_eq);
 	}
 
 END:

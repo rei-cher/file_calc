@@ -445,6 +445,8 @@ calc_status_t validate_integers(const char * p_f_input,
 
 }
 
+// TODO: split switch statement to call 2 different functions based on the operation type
+// bitwise or arithmetic
 calc_status_t calculate_result(operator_t operator,
 							   const integer_t * p_f_integer,
 							   const integer_t * p_s_integer,

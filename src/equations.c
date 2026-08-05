@@ -4,8 +4,11 @@
  *
  */
 
+#include <stdint.h>
+#include <stdio.h>
 #include "equations.h"
 #include "equation_status.h"
+#include "calculator.h"
 
 #define SINGLE_OBJECT_COUNT 1U
 
@@ -82,12 +85,19 @@ END:
 	return status;	
 }
 
-equation_status_t calculate_equation(const equation_t * p_equation,
-									 solved_t * p_solved)
+// TODO: iterate over each function
+// for each:
+// 		read_equation
+// 		get_operator (calculator.c)
+// 		calculate_result (calculator.c)
+equation_status_t calculate_equations(FILE * p_file, uint64_t num_of_eq)
 {
-	equation_status_t status = EQ_STATUS_OK;
+	equation_status_t eq_status = EQ_STATUS_OK;
+	calc_status_t calc_status = CALC_STATUS_OK;
+	integer_t result = {0};
 
 	
+
 
 END:
 	return status;
