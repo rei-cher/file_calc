@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include "equation_status.h"
 
+#define PADDING_SIZE 10
+
 typedef struct
 {
 	int64_t first_operand;
@@ -23,7 +25,7 @@ typedef struct
 	uint32_t id;
 	uint8_t flag;
 	serialized_eq_t equation;
-	uint8_t padding[10];
+	uint8_t padding[PADDING_SIZE];
 } equation_t;
 
 typedef struct
