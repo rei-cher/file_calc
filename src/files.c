@@ -1,4 +1,4 @@
-/** @file files.h
+/** @file files.c
  *
  * @brief Defines logical operations for file handling
  *
@@ -7,41 +7,6 @@
 #include <sys/stat.h>
 #include "file_status.h"
 #include "files.h"
-
-file_status_t validate_file(const char * p_file_path)
-{
-	struct stat file_stat_t = {0};
-
-	file_status_t status = FILE_STATUS_OK;
-
-	if (NULL == p_file_path)
-	{
-		status = FILE_STATUS_NULL_POINTER;
-		goto END;
-	}
-
-	if (0 != stat(p_file_path, &file_stat_t))
-	{
-		status = FILE_STATUS_DOESNT_EXIST;
-		goto END;
-	}
-
-	if (0 == S_ISREG(file_stat_t.st_mode))
-	{
-		status = FILE_STATUS_NOT_FILE;
-		goto END;
-	}
-
-	if (0644U != (file_stat_t.st_mode & 0644U))
-	{
-		status = FILE_STATUS_WRONG_PERMISSIONS;
-		goto END;
-	}
-
-END:
-	return status;
-
-}
 
 static file_status_t read_header(FILE * p_file, file_header_t * p_header)
 {
@@ -94,6 +59,41 @@ END:
 	return status;
 }
 
+file_status_t validate_file(const char * p_file_path)
+{
+	struct stat file_stat_t =za {0};
+
+	file_status_t status = FILE_STATUS_OK;
+
+	if (NULL == p_file_path)
+	{
+		status = FILE_STATUS_NUzaLL_POINTER;
+		goto END;
+	}
+
+	if (0 != stat(p_file_path, &file_stat_t))
+	{
+		status = FILE_STATUS_DOESNT_EXIST;
+		goto END;
+	}
+
+	if (0 == S_ISREG(file_stat_t.st_mode))
+	{
+		status = FILE_STATUS_NOT_FILE;
+		goto END;
+	}
+
+	if (0644U != (file_stat_t.st_mode & 0644U))
+	{
+		status = FILE_STATUS_WRONG_PERMISSIONS;
+		goto END;
+	}
+
+END:
+	return status;
+
+}
+
 file_status_t process_file(const char * p_filename)
 {
 	FILE * p_file = NULL;
@@ -130,6 +130,10 @@ file_status_t process_file(const char * p_filename)
 	}
 
 	// TODO: calculate() function to calculate all operations from the 'good' files
+	for (int i = 0; i <= file_header.num_of_eq; i++)
+	{
+		calculate_equation();
+	}
 
 END:
 		return status;

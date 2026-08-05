@@ -3,6 +3,9 @@
 # Build
 build/
 
+# tags
+tags
+
 # Prerequisites
 *.d
 

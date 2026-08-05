@@ -97,6 +97,12 @@ DIR_STATUS_NULL_POINTER	include/dir_status.h	/^	DIR_STATUS_NULL_POINTER,$/;"	e	e
 DIR_STATUS_OK	include/dir_status.h	/^	DIR_STATUS_OK = 0,$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_STAT_ERROR	include/dir_status.h	/^	DIR_STATUS_STAT_ERROR,$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_WRONG_PERMISSIONS	include/dir_status.h	/^	DIR_STATUS_WRONG_PERMISSIONS,$/;"	e	enum:__anon7bd5c6500103
+EQUATIONS_H	include/equations.h	/^#define EQUATIONS_H$/;"	d
+EQUATION_STATUS_H	include/equation_status.h	/^#define EQUATION_STATUS_H$/;"	d
+EQ_STATUS_NOT_SOLVED	include/equation_status.h	/^	EQ_STATUS_NOT_SOLVED$/;"	e	enum:__anon7f708b970103
+EQ_STATUS_NULL_POINTER	include/equation_status.h	/^	EQ_STATUS_NULL_POINTER,$/;"	e	enum:__anon7f708b970103
+EQ_STATUS_OK	include/equation_status.h	/^	EQ_STATUS_OK = 0,$/;"	e	enum:__anon7f708b970103
+EQ_STATUS_READ_ERROR	include/equation_status.h	/^	EQ_STATUS_READ_ERROR,$/;"	e	enum:__anon7f708b970103
 EXECUTABLE_NAME	CMakeLists.txt	/^set(EXECUTABLE_NAME  simplecalc)$/;"	v
 FILES_H	include/files.h	/^#define FILES_H$/;"	d
 FILE_STATUS_DOESNT_EXISTS	include/file_status.h	/^	FILE_STATUS_DOESNT_EXISTS,$/;"	e	enum:__anon1195beb10103
@@ -115,7 +121,11 @@ NUMBER_OF_ARGUMENTS	src/main.c	/^#define NUMBER_OF_ARGUMENTS /;"	d	file:
 OUTPUT_DIR	src/main.c	/^#define OUTPUT_DIR /;"	d	file:
 PROGRAM_NAME	src/main.c	/^#define PROGRAM_NAME /;"	d	file:
 __anon1195beb10103	include/file_status.h	/^{$/;"	g
+__anon13b65d670108	include/equations.h	/^{$/;"	s
+__anon13b65d670208	include/equations.h	/^{$/;"	s
+__anon13b65d670308	include/equations.h	/^{$/;"	s
 __anon7bd5c6500103	include/dir_status.h	/^{$/;"	g
+__anon7f708b970103	include/equation_status.h	/^{$/;"	g
 __anon93c894e40103	include/calc_status.h	/^{$/;"	g
 __anone4a1c5010108	include/files.h	/^{$/;"	s
 calc_status_t	include/calc_status.h	/^} calc_status_t;$/;"	t	typeref:enum:__anon93c894e40103
@@ -123,17 +133,32 @@ create_dir	src/directories.c	/^dir_status_t create_dir(const char * p_dir)$/;"	f
 create_file	src/files.c	/^file_status_t create_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t
 dir_status_t	include/dir_status.h	/^} dir_status_t;$/;"	t	typeref:enum:__anon7bd5c6500103
 eq_offset	include/files.h	/^	uint32_t eq_offset;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint32_t
+equation	include/equations.h	/^	serialized_eq_t equation;$/;"	m	struct:__anon13b65d670208	typeref:typename:serialized_eq_t
+equation_status_t	include/equation_status.h	/^} equation_status_t;$/;"	t	typeref:enum:__anon7f708b970103
+equation_t	include/equations.h	/^} equation_t;$/;"	t	typeref:struct:__anon13b65d670208
 file_header_t	include/files.h	/^} file_header_t;$/;"	t	typeref:struct:__anone4a1c5010108
 file_id	include/files.h	/^	uint64_t file_id;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint64_t
 file_status_t	include/file_status.h	/^} file_status_t;$/;"	t	typeref:enum:__anon1195beb10103
+first_operand	include/equations.h	/^	int64_t first_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:int64_t
+flag	include/equations.h	/^	uint8_t flag;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t
 flag	include/files.h	/^	uint8_t flag;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint8_t
+flags	include/equations.h	/^	uint8_t flags;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
+id	include/equations.h	/^	uint32_t id;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint32_t
+id	include/equations.h	/^	uint32_t id;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint32_t
 magic	include/files.h	/^	uint32_t magic;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint32_t
 main	src/main.c	/^int main(int argc, char ** argv)$/;"	f	typeref:typename:int
 num_of_eq	include/files.h	/^	uint64_t num_of_eq;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint64_t
 opt_headers	include/files.h	/^	uint16_t opt_headers;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint16_t
+padding	include/equations.h	/^	uint8_t padding[10];$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t[10]
 print_usage	src/main.c	/^static void print_usage(const char * p_name)$/;"	f	typeref:typename:void	file:
 process_file	src/files.c	/^file_status_t process_file(const char * p_filename)$/;"	f	typeref:typename:file_status_t
+read_eqation	src/equations.c	/^equation_status_t read_eqation(FILE * p_file, equation_t * p_equation)$/;"	f	typeref:typename:equation_status_t
 read_header	src/files.c	/^static file_status_t read_header(FILE * p_file, file_header_t * p_header)$/;"	f	typeref:typename:file_status_t	file:
+second_operand	include/equations.h	/^	int64_t second_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:int64_t
+serialized_eq_t	include/equations.h	/^} serialized_eq_t;$/;"	t	typeref:struct:__anon13b65d670108
 simple_calc	CMakeLists.txt	/^    simple_calc$/;"	p
+solution	include/equations.h	/^	int64_t solution;$/;"	m	struct:__anon13b65d670308	typeref:typename:int64_t
+solved_t	include/equations.h	/^} solved_t;$/;"	t	typeref:struct:__anon13b65d670308
+type	include/equations.h	/^	uint8_t type;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
 validate_directories	src/directories.c	/^dir_status_t validate_directories(const char * p_dir)$/;"	f	typeref:typename:dir_status_t
 validate_file	src/files.c	/^file_status_t validate_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t
