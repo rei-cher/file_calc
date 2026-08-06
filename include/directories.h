@@ -9,7 +9,7 @@
 
 #include "dir_status.h"
 
-dir_status_t validate_directories(const char * p_dir);
+dir_status_t validate_directory(const char * p_dir);
 dir_status_t create_dir(const char * p_dir);
 
 #endif

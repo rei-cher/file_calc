@@ -29,7 +29,7 @@ END:
 	return status;
 }
 
-dir_status_t validate_directories(const char * p_dir)
+dir_status_t validate_directory(const char * p_dir)
 {
 	struct stat dir_stat_t = {0};
 

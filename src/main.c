@@ -43,7 +43,7 @@ int main(int argc, char ** argv)
 		goto END;
 	}
 
-	output_dir_status = validate_directories(argv[OUTPUT_DIR]);
+	output_dir_status = validate_directory(argv[OUTPUT_DIR]);
 
 	if (DIR_STATUS_DOESNT_EXIST == output_dir_status)
 	{

@@ -5,69 +5,22 @@
  */
 
 #include <sys/stat.h>
-#include "file_status.h"
+
 #include "files.h"
+#include "file_status.h"
 
-static file_status_t read_header(FILE * p_file, file_header_t * p_header)
-{
-	file_status_t status = FILE_STATUS_OK;
-
-	if ((NULL == p_file) ||
-		(NULL == p_header))
-	{
-		status = FILE_STATUS_NULL_POINTER;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->magic, sizeof(p_header->magic), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->file_id, sizeof(p_header->file_id), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->num_of_eq, sizeof(p_header->num_of_eq), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->flag, sizeof(p_header->flag), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->eq_offset, sizeof(p_header->eq_offset), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->op_headers, sizeof(p_header->opt_headers), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-END:
-	return status;
-}
+static file_status_t read_header(FILE * p_file, file_header_t * p_header);
+static file_status_t process_equations(FILE * p_file, uint64_t num_of_eq);
 
 file_status_t validate_file(const char * p_file_path)
 {
-	struct stat file_stat_t =za {0};
+	struct stat file_stat_t = {0};
 
 	file_status_t status = FILE_STATUS_OK;
 
 	if (NULL == p_file_path)
 	{
-		status = FILE_STATUS_NUzaLL_POINTER;
+		status = FILE_STATUS_NULL_POINTER;
 		goto END;
 	}
 
@@ -129,6 +82,12 @@ file_status_t process_file(const char * p_filename)
 		goto END;
 	}
 
+	if (0 != fseek(p_file, file_header.eq_offset, SEEK_SET))
+	{
+		status = FILE_STATUS_SEEK_ERROR;
+		goto END;
+	}
+
 	// TODO: calcualte_equations -> implement accepting pointer to output file
 	if (FILE_STATUS_OK == status)
 	{
@@ -136,7 +95,13 @@ file_status_t process_file(const char * p_filename)
 	}
 
 END:
-		return status;
+	if (NULL != p_file)
+	{
+		fclose(p_file);
+		p_file = NULL;
+	}
+
+	return status;
 }
 
 file_status_t create_file(const char * p_file_path)
@@ -144,4 +109,54 @@ file_status_t create_file(const char * p_file_path)
 	file_status_t status = FILE_STATUS_OK;
 }
 
+static file_status_t read_header(FILE * p_file, file_header_t * p_header)
+{
+	file_status_t status = FILE_STATUS_OK;
+
+	if ((NULL == p_file) ||
+		(NULL == p_header))
+	{
+		status = FILE_STATUS_NULL_POINTER;
+		goto END;
+	}
+
+	if (1U != fread(&p_header->magic, sizeof(p_header->magic), 1U, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (1U != fread(&p_header->file_id, sizeof(p_header->file_id), 1U, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (1U != fread(&p_header->num_of_eq, sizeof(p_header->num_of_eq), 1U, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (1U != fread(&p_header->flag, sizeof(p_header->flag), 1U, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (1U != fread(&p_header->eq_offset, sizeof(p_header->eq_offset), 1U, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (1U != fread(&p_header->op_headers, sizeof(p_header->opt_headers), 1U, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+END:
+	return status;
+}
 /*** end of the file ***/
