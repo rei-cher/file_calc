@@ -6,6 +6,9 @@ build/
 # tags
 tags
 
+# equ files
+*.equ
+
 # Prerequisites
 *.d
 
