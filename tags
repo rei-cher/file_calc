@@ -83,8 +83,20 @@
 !_TAG_ROLE_DESCRIPTION!C++!partition	imported	/imported with "imported ..."/
 !_TAG_ROLE_DESCRIPTION!Sh!heredoc	endmarker	/end marker/
 !_TAG_ROLE_DESCRIPTION!Sh!script	loaded	/loaded/
+BIT_OPERATIONS_H	include/bit_operations.h	/^#define BIT_OPERATIONS_H$/;"	d
+CALCULATOR_H	include/calculator.h	/^#define CALCULATOR_H$/;"	d
+CALC_OPERATIONS_H	include/calc_operations.h	/^#define CALC_OPERATIONS_H$/;"	d
+CALC_STATUS_DIVIDE_BY_ZERO	include/calc_status.h	/^	CALC_STATUS_DIVIDE_BY_ZERO,$/;"	e	enum:__anon93c894e40103
 CALC_STATUS_H	include/calc_status.h	/^#define CALC_STATUS_H$/;"	d
-CALC_STATUS_OK	include/calc_status.h	/^	CALC_STATUS_OK = 0$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_INTEGER_OUT_OF_RANGE	include/calc_status.h	/^	CALC_STATUS_INTEGER_OUT_OF_RANGE,$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_INVALID_ARGUMENT_COUNT	include/calc_status.h	/^	CALC_STATUS_INVALID_ARGUMENT_COUNT,$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_INVALID_INTEGER	include/calc_status.h	/^	CALC_STATUS_INVALID_INTEGER,$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_INVALID_INTEGER_TYPE	include/calc_status.h	/^	CALC_STATUS_INVALID_INTEGER_TYPE$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_INVALID_OPERATOR	include/calc_status.h	/^	CALC_STATUS_INVALID_OPERATOR,$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_INVALID_SHIFT	include/calc_status.h	/^	CALC_STATUS_INVALID_SHIFT,$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_NULL_POINTER	include/calc_status.h	/^	CALC_STATUS_NULL_POINTER,$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_OK	include/calc_status.h	/^	CALC_STATUS_OK = 0,$/;"	e	enum:__anon93c894e40103
+CALC_STATUS_OVERFLOW	include/calc_status.h	/^	CALC_STATUS_OVERFLOW,$/;"	e	enum:__anon93c894e40103
 CMAKE_C_EXTENSIONS	CMakeLists.txt	/^set(CMAKE_C_EXTENSIONS        OFF)$/;"	v
 CMAKE_C_STANDARD	CMakeLists.txt	/^set(CMAKE_C_STANDARD          17)$/;"	v
 CMAKE_C_STANDARD_REQUIRED	CMakeLists.txt	/^set(CMAKE_C_STANDARD_REQUIRED ON)$/;"	v
@@ -99,7 +111,8 @@ DIR_STATUS_STAT_ERROR	include/dir_status.h	/^	DIR_STATUS_STAT_ERROR,$/;"	e	enum:
 DIR_STATUS_WRONG_PERMISSIONS	include/dir_status.h	/^	DIR_STATUS_WRONG_PERMISSIONS,$/;"	e	enum:__anon7bd5c6500103
 EQUATIONS_H	include/equations.h	/^#define EQUATIONS_H$/;"	d
 EQUATION_STATUS_H	include/equation_status.h	/^#define EQUATION_STATUS_H$/;"	d
-EQ_STATUS_NOT_SOLVED	include/equation_status.h	/^	EQ_STATUS_NOT_SOLVED$/;"	e	enum:__anon7f708b970103
+EQ_STATUS_INVALID_OPERATOR	include/equation_status.h	/^	EQ_STATUS_INVALID_OPERATOR$/;"	e	enum:__anon7f708b970103
+EQ_STATUS_NOT_SOLVED	include/equation_status.h	/^	EQ_STATUS_NOT_SOLVED,$/;"	e	enum:__anon7f708b970103
 EQ_STATUS_NULL_POINTER	include/equation_status.h	/^	EQ_STATUS_NULL_POINTER,$/;"	e	enum:__anon7f708b970103
 EQ_STATUS_OK	include/equation_status.h	/^	EQ_STATUS_OK = 0,$/;"	e	enum:__anon7f708b970103
 EQ_STATUS_READ_ERROR	include/equation_status.h	/^	EQ_STATUS_READ_ERROR,$/;"	e	enum:__anon7f708b970103
@@ -107,31 +120,61 @@ EXECUTABLE_NAME	CMakeLists.txt	/^set(EXECUTABLE_NAME  simplecalc)$/;"	v
 FILES_H	include/files.h	/^#define FILES_H$/;"	d
 FILE_STATUS_DOESNT_EXISTS	include/file_status.h	/^	FILE_STATUS_DOESNT_EXISTS,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_H	include/file_status.h	/^#define FILE_STATUS_H$/;"	d
-FILE_STATUS_INVALID_MAGIC	include/file_status.h	/^	FILE_STATUS_INVALID_MAGIC$/;"	e	enum:__anon1195beb10103
+FILE_STATUS_INVALID_MAGIC	include/file_status.h	/^	FILE_STATUS_INVALID_MAGIC,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_NOT_FILE	include/file_status.h	/^	FILE_STATUS_NOT_FILE,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_NULL_POINTER	include/file_status.h	/^	FILE_STATUS_NULL_POINTER,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_OK	include/file_status.h	/^	FILE_STATUS_OK = 0,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_OPEN_ERROR	include/file_status.h	/^	FILE_STATUS_OPEN_ERROR,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_READ_ERROR	include/file_status.h	/^	FILE_STATUS_READ_ERROR,$/;"	e	enum:__anon1195beb10103
+FILE_STATUS_SEEK_ERROR	include/file_status.h	/^	FILE_STATUS_SEEK_ERROR$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_STAT_ERROR	include/file_status.h	/^	FILE_STATUS_STAT_ERROR,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_WRONG_PERMISSIONS	include/file_status.h	/^	FILE_STATUS_WRONG_PERMISSIONS,$/;"	e	enum:__anon1195beb10103
+FIRST_CHARACTER	src/calculator.c	/^#define FIRST_CHARACTER /;"	d	file:
 INPUT_DIR	src/main.c	/^#define INPUT_DIR /;"	d	file:
+INTEGER_TYPE_SIGNED	include/calculator.h	/^	INTEGER_TYPE_SIGNED = 0x01U,$/;"	e	enum:__anon4a5d91580203
+INTEGER_TYPE_UNSIGNED	include/calculator.h	/^	INTEGER_TYPE_UNSIGNED = 0x02U$/;"	e	enum:__anon4a5d91580203
 Instructions	README.md	/^# Instructions$/;"	c
 NUMBER_OF_ARGUMENTS	src/main.c	/^#define NUMBER_OF_ARGUMENTS /;"	d	file:
+OPERATOR_ADD	include/calculator.h	/^	OPERATOR_ADD = 0x01U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_AND	include/calculator.h	/^	OPERATOR_AND = 0x08U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_DIVIDE	include/calculator.h	/^	OPERATOR_DIVIDE = 0x04U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_LEFT_ROTATE	include/calculator.h	/^	OPERATOR_LEFT_ROTATE = 0x0BU,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_LEFT_SHIFT	include/calculator.h	/^	OPERATOR_LEFT_SHIFT = 0x06U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_MODULO	include/calculator.h	/^	OPERATOR_MODULO = 0x05U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_MULTIPLY	include/calculator.h	/^	OPERATOR_MULTIPLY = 0x03U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_OR	include/calculator.h	/^	OPERATOR_OR = 0x09U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_RIGHT_ROTATE	include/calculator.h	/^	OPERATOR_RIGHT_ROTATE = 0x0CU$/;"	e	enum:__anon4a5d91580103
+OPERATOR_RIGHT_SHIFT	include/calculator.h	/^	OPERATOR_RIGHT_SHIFT = 0x07U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_SUBTRACT	include/calculator.h	/^	OPERATOR_SUBTRACT = 0x02U,$/;"	e	enum:__anon4a5d91580103
+OPERATOR_XOR	include/calculator.h	/^	OPERATOR_XOR = 0x0AU,$/;"	e	enum:__anon4a5d91580103
 OUTPUT_DIR	src/main.c	/^#define OUTPUT_DIR /;"	d	file:
+PADDING_SIZE	include/equations.h	/^#define PADDING_SIZE /;"	d
 PROGRAM_NAME	src/main.c	/^#define PROGRAM_NAME /;"	d	file:
+SINGLE_OBJECT_COUNT	src/equations.c	/^#define SINGLE_OBJECT_COUNT /;"	d	file:
+UINT64_BIT_COUNT	src/bit_operations.c	/^#define UINT64_BIT_COUNT /;"	d	file:
+ZERO_UNSIGNED	src/bit_operations.c	/^#define ZERO_UNSIGNED /;"	d	file:
 __anon1195beb10103	include/file_status.h	/^{$/;"	g
 __anon13b65d670108	include/equations.h	/^{$/;"	s
 __anon13b65d670208	include/equations.h	/^{$/;"	s
 __anon13b65d670308	include/equations.h	/^{$/;"	s
+__anon4a5d91580103	include/calculator.h	/^{$/;"	g
+__anon4a5d91580203	include/calculator.h	/^{$/;"	g
+__anon4a5d9158030a	include/calculator.h	/^{$/;"	u
+__anon4a5d91580408	include/calculator.h	/^{$/;"	s
 __anon7bd5c6500103	include/dir_status.h	/^{$/;"	g
 __anon7f708b970103	include/equation_status.h	/^{$/;"	g
 __anon93c894e40103	include/calc_status.h	/^{$/;"	g
 __anone4a1c5010108	include/files.h	/^{$/;"	s
+add	src/calc_operations.c	/^calc_status_t add(int64_t f_num, int64_t s_num, int64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 calc_status_t	include/calc_status.h	/^} calc_status_t;$/;"	t	typeref:enum:__anon93c894e40103
+calculate_arit	src/calculator.c	/^static calc_statuc calculate_arit(operator_t operator,$/;"	f	typeref:typename:calc_statuc	file:
+calculate_bit	src/calculator.c	/^static calc_statuc calculate_bit(operator_t operator,$/;"	f	typeref:typename:calc_statuc	file:
+calculate_equations	src/equations.c	/^equation_status_t calculate_equations(FILE * p_input_file,$/;"	f	typeref:typename:equation_status_t
+calculate_result	src/calculator.c	/^calc_status_t calculate_result(operator_t operator,$/;"	f	typeref:typename:calc_status_t
 create_dir	src/directories.c	/^dir_status_t create_dir(const char * p_dir)$/;"	f	typeref:typename:dir_status_t
 create_file	src/files.c	/^file_status_t create_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t
 dir_status_t	include/dir_status.h	/^} dir_status_t;$/;"	t	typeref:enum:__anon7bd5c6500103
+divide	src/calc_operations.c	/^calc_status_t divide(int64_t f_num, int64_t s_num, int64_t *p_result)$/;"	f	typeref:typename:calc_status_t
 eq_offset	include/files.h	/^	uint32_t eq_offset;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint32_t
 equation	include/equations.h	/^	serialized_eq_t equation;$/;"	m	struct:__anon13b65d670208	typeref:typename:serialized_eq_t
 equation_status_t	include/equation_status.h	/^} equation_status_t;$/;"	t	typeref:enum:__anon7f708b970103
@@ -139,26 +182,50 @@ equation_t	include/equations.h	/^} equation_t;$/;"	t	typeref:struct:__anon13b65d
 file_header_t	include/files.h	/^} file_header_t;$/;"	t	typeref:struct:__anone4a1c5010108
 file_id	include/files.h	/^	uint64_t file_id;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint64_t
 file_status_t	include/file_status.h	/^} file_status_t;$/;"	t	typeref:enum:__anon1195beb10103
-first_operand	include/equations.h	/^	int64_t first_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:int64_t
+first_operand	include/equations.h	/^	value_t first_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:value_t
 flag	include/equations.h	/^	uint8_t flag;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t
 flag	include/files.h	/^	uint8_t flag;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint8_t
 flags	include/equations.h	/^	uint8_t flags;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
+get_equation_operator	src/equations.c	/^static equation_status_t get_equation_operator(uint8_t operator_code,$/;"	f	typeref:typename:equation_status_t	file:
+get_integer_type	src/calculator.c	/^integer_type_t get_integer_type(operator_t operator)$/;"	f	typeref:typename:integer_type_t
 id	include/equations.h	/^	uint32_t id;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint32_t
 id	include/equations.h	/^	uint32_t id;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint32_t
+integer_t	include/calculator.h	/^} integer_t;$/;"	t	typeref:struct:__anon4a5d91580408
+integer_type_t	include/calculator.h	/^} integer_type_t;$/;"	t	typeref:enum:__anon4a5d91580203
+l_rotate	src/bit_operations.c	/^calc_status_t l_rotate(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
+l_shift	src/bit_operations.c	/^calc_status_t l_shift(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 magic	include/files.h	/^	uint32_t magic;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint32_t
 main	src/main.c	/^int main(int argc, char ** argv)$/;"	f	typeref:typename:int
+modulo	src/calc_operations.c	/^calc_status_t modulo(int64_t f_num, int64_t s_num, int64_t *p_result)$/;"	f	typeref:typename:calc_status_t
+multiply	src/calc_operations.c	/^calc_status_t multiply(int64_t f_num, int64_t s_num, int64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 num_of_eq	include/files.h	/^	uint64_t num_of_eq;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint64_t
+op_and	src/bit_operations.c	/^calc_status_t op_and(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
+op_or	src/bit_operations.c	/^calc_status_t op_or(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
+op_xor	src/bit_operations.c	/^calc_status_t op_xor(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
+operator_t	include/calculator.h	/^} operator_t;$/;"	t	typeref:enum:__anon4a5d91580103
 opt_headers	include/files.h	/^	uint16_t opt_headers;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint16_t
-padding	include/equations.h	/^	uint8_t padding[10];$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t[10]
+padding	include/equations.h	/^	uint8_t padding[PADDING_SIZE];$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t[]
+print_error	src/calculator.c	/^void print_error(calc_status_t status)$/;"	f	typeref:typename:void
+print_result	src/calculator.c	/^void print_result(const integer_t * p_result)$/;"	f	typeref:typename:void
+print_usage	src/calculator.c	/^void print_usage(const char * p_name)$/;"	f	typeref:typename:void
 print_usage	src/main.c	/^static void print_usage(const char * p_name)$/;"	f	typeref:typename:void	file:
 process_file	src/files.c	/^file_status_t process_file(const char * p_filename)$/;"	f	typeref:typename:file_status_t
-read_eqation	src/equations.c	/^equation_status_t read_eqation(FILE * p_file, equation_t * p_equation)$/;"	f	typeref:typename:equation_status_t
+r_rotate	src/bit_operations.c	/^calc_status_t r_rotate(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
+r_shift	src/bit_operations.c	/^calc_status_t r_shift(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 read_header	src/files.c	/^static file_status_t read_header(FILE * p_file, file_header_t * p_header)$/;"	f	typeref:typename:file_status_t	file:
-second_operand	include/equations.h	/^	int64_t second_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:int64_t
+second_operand	include/equations.h	/^	value_t second_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:value_t
 serialized_eq_t	include/equations.h	/^} serialized_eq_t;$/;"	t	typeref:struct:__anon13b65d670108
+signed_value	include/calculator.h	/^	int64_t signed_value;$/;"	m	union:__anon4a5d9158030a	typeref:typename:int64_t
 simple_calc	CMakeLists.txt	/^    simple_calc$/;"	p
-solution	include/equations.h	/^	int64_t solution;$/;"	m	struct:__anon13b65d670308	typeref:typename:int64_t
+solution	include/equations.h	/^	value_t solution;$/;"	m	struct:__anon13b65d670308	typeref:typename:value_t
+solve_equation	src/equations.c	/^static equation_status_t solve_equation(equation_t * p_equation,$/;"	f	typeref:typename:equation_status_t	file:
 solved_t	include/equations.h	/^} solved_t;$/;"	t	typeref:struct:__anon13b65d670308
+subtract	src/calc_operations.c	/^calc_status_t subtract(int64_t f_num, int64_t s_num, int64_t * p_result)$/;"	f	typeref:typename:calc_status_t
+type	include/calculator.h	/^	integer_type_t type;$/;"	m	struct:__anon4a5d91580408	typeref:typename:integer_type_t
 type	include/equations.h	/^	uint8_t type;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
-validate_directories	src/directories.c	/^dir_status_t validate_directories(const char * p_dir)$/;"	f	typeref:typename:dir_status_t
+unsigned_value	include/calculator.h	/^	uint64_t unsigned_value;$/;"	m	union:__anon4a5d9158030a	typeref:typename:uint64_t
+validate_directory	src/directories.c	/^dir_status_t validate_directory(const char * p_dir)$/;"	f	typeref:typename:dir_status_t
+validate_equation_format	src/equations.c	/^static equation_status_t validate_equation_format(FILE * p_file, equation_t *  p_equation)$/;"	f	typeref:typename:equation_status_t	file:
 validate_file	src/files.c	/^file_status_t validate_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t
+value	include/calculator.h	/^	value_t	   value;$/;"	m	struct:__anon4a5d91580408	typeref:typename:value_t
+value_t	include/calculator.h	/^} value_t;$/;"	t	typeref:union:__anon4a5d9158030a

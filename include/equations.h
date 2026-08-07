@@ -9,15 +9,17 @@
 
 #include <stdint.h>
 #include <stdio.h>
+
+#include "calculator.h"
 #include "equation_status.h"
 
 #define PADDING_SIZE 10
 
 typedef struct
 {
-	int64_t first_operand;
+	value_t first_operand;
 	uint8_t operator;
-	int64_t second_operand;
+	value_t second_operand;
 } serialized_eq_t;
 
 typedef struct 
@@ -33,12 +35,14 @@ typedef struct
 	uint32_t id;
 	uint8_t flags;
 	uint8_t type;
-	int64_t solution;
+	value_t solution;
 } solved_t;
 
 equation_status_t read_equation(FILE * p_file, equation_t * p_equation);
 
-equation_status_t calculate_equations(FILE * p_file, uint64_t num_of_eq);
+equation_status_t calculate_equations(FILE * p_input_file, 
+									  FILE * P_output_file,
+									  uint64_t num_of_eq);
 
 #endif
 

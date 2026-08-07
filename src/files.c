@@ -7,10 +7,10 @@
 #include <sys/stat.h>
 
 #include "files.h"
+#include "equations.h"
 #include "file_status.h"
 
 static file_status_t read_header(FILE * p_file, file_header_t * p_header);
-static file_status_t process_equations(FILE * p_file, uint64_t num_of_eq);
 
 file_status_t validate_file(const char * p_file_path)
 {
@@ -51,7 +51,9 @@ file_status_t process_file(const char * p_filename)
 {
 	FILE * p_file = NULL;
 	file_header_t file_header = {0};
+	
 	file_status_t status = FILE_STATUS_OK;
+	equation_status_t eq_status = EQ_STATUS_OK;
 
 	if (NULL == p_filename)
 	{
@@ -63,8 +65,6 @@ file_status_t process_file(const char * p_filename)
 
 	if (NULL == p_file)
 	{
-		fclose(p_file);
-		p_file = NULL;
 		status = FILE_STATUS_OPEN_ERROR;
 		goto END;
 	}
@@ -89,9 +89,12 @@ file_status_t process_file(const char * p_filename)
 	}
 
 	// TODO: calcualte_equations -> implement accepting pointer to output file
-	if (FILE_STATUS_OK == status)
+	eq_status = calculate_equations(p_file, file_header.num_of_eq);
+
+	if (EQ_STATUS_OK != eq_status)
 	{
-		calculate_equations(p_file, file_header.num_of_eq);
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
 	}
 
 END:
@@ -150,7 +153,7 @@ static file_status_t read_header(FILE * p_file, file_header_t * p_header)
 		goto END;
 	}
 
-	if (1U != fread(&p_header->op_headers, sizeof(p_header->opt_headers), 1U, p_file))
+	if (1U != fread(&p_header->opt_headers, sizeof(p_header->opt_headers), 1U, p_file))
 	{
 		status = FILE_STATUS_READ_ERROR;
 		goto END;

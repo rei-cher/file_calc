@@ -7,50 +7,34 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "file_status.h"
 #include "equations.h"
 #include "equation_status.h"
 #include "calculator.h"
 
 #define SINGLE_OBJECT_COUNT 1U
 
-static equation_status_t validate_format(p_file, p_equation);
+static equation_status_t validate_format(FILE * p_file, equation_t * p_equation);
 static equation_status_t solve_equation(equation_t * p_equation,
 										integer_t * p_result);
+static equation_status_t read_equation(FILE * p_file, equation_t * p_equation);
+static equation_status_t get_equation_operator(uint8_t operator_code,
+											   operator_t * p_operator);
 
-equation_status_t read_equation(FILE * p_file, equation_t * p_equation)
-{
-	equation_status_t status = EQ_STATUS_OK;
 
-	if ((NULL == p_file) ||
-		(NULL == p_equation))
-	{
-		status = EQ_STATUS_NULL_POINTER;
-		goto END;
-	}
-
-	status = validate_format(p_file, p_equation);
-
-END:
-	return status;	
-}
-
-equation_status_t calculate_equations(FILE * p_file, uint64_t num_of_eq)
+equation_status_t calculate_equations(FILE * p_input_file,
+									  FILE * p_output_file,
+									  uint64_t num_of_eq)
 {
 	equation_t unsolved_eq = {0};
 	solved_t solved_eq = {0};
 	integer_t result = {0};
 
-	integer_type_t integer_type = INTEGER_TYPE_SIGNED;
-	file_status_t status = FILE_STATUS_OK;
-	equation_status_t eq_status = EQ_STATUS_OK;
-	calc_status_t calc_status = CALC_STATUS_OK;
-	
-	integer_t result = {0};
+	equation_status_t status = EQ_STATUS_OK;
 
-	if (NULL == p_file)
+	if ((NULL == p_input_file) ||
+		(NULL == p_output_file))
 	{
-		status = FILE_STATUS_NULL_POINTER;
+		status = EQ_STATUS_NULL_POINTER;
 		goto END;
 	}
 
@@ -61,25 +45,37 @@ equation_status_t calculate_equations(FILE * p_file, uint64_t num_of_eq)
 		unsolved_eq = (equation_t){0};
 		solved_eq = (solved_t){0};
 
-		eq_status = read_equation(p_file, &unsolved_eq);
+		status = validate_equation_format(p_input_file, &unsolved_eq);
 
 		if (EQ_STATUS_OK != eq_status)
 		{
-			status = FILE_STATUS_READ_ERROR;
+			status = EQ_STATUS_READ_ERROR;
 			goto END;
 		}
 
 		solved_eq.id = unsolved_eq.id;
 
-		eq_status = solve_equation(&unsolved_eq, &result);
+		status = solve_equation(&unsolved_eq, &result);
 
 		if (EQ_STATUS_OK == eq_status)
 		{
 			solved_eq.flag = 0x01U;
+			solved_eq.type = result.type;
+			solved_eq.solution = result.value;
 		}
 		else
 		{
 			solved_eq.flag = 0x00U;
+			solved_eq.type = 0x00U;
+			solved_eq.solution = 0U;
+		}
+
+		file_status = write_solved_eq(p_output_file, &solved_eq);
+
+		if (FILE_STATUS_OK != file_status)
+		{
+			// TODO: set status to something
+			goto END;
 		}
 	}
 
@@ -87,9 +83,17 @@ END:
 	return status;
 }
 
-static equation_status_t validate_format(p_file, p_equation)
+static equation_status_t validate_equation_format(FILE * p_file, equation_t *  p_equation)
 {
 	equation_status_t status = EQ_STATUS_OK;
+	
+	if ((NULL == p_file) ||
+		(NULL == p_equation))
+	{
+		status = EQ_STATUS_NULL_POINTER;
+		goto END;
+	}
+
 
 	if (SINGLE_OBJECT_COUNT != fread(&p_equation->id, sizeof(p_equation->id), SINGLE_OBJECT_COUNT, p_file))
 	{
@@ -103,7 +107,7 @@ static equation_status_t validate_format(p_file, p_equation)
 		goto END;
 	}
 
-	if (SINGLE_OBJECT_COUNT != fread(&p_equation->equaltion.first_operand,
+	if (SINGLE_OBJECT_COUNT != fread(&p_equation->equation.first_operand,
 					sizeof(p_equation->equation.first_operand),
 					SINGLE_OBJECT_COUNT,
 					p_file))
@@ -153,6 +157,73 @@ END:
 static equation_status_t solve_equation(equation_t * p_equation,
 										integer_t * p_result)
 {
+	integer_type_t integer_type = INTEGER_TYPE_SIGNED;
+	calc_status_t calc_status = CALC_STATUS_OK;
+	equation_status_t status = EQ_STATUS_OK;
+	operator_t operator = OPERATOR_ADD;
 
+	integer_t first_int = {0};
+	integer_t second_int = {0};
+
+	if ((NULL == p_equation) ||
+		(NULL == p_result))
+	{
+		status = EQ_STATUS_NULL_POINTER;
+		goto END;
+	}
+
+	status = get_equation_operator(p_equation->equation.operator,
+								   &operator);
+
+	if (EQ_STATUS_OK != status)
+	{
+		goto END;
+	}
+
+	integer_type = get_integer_type(operator);
+
+	first_int.type = integer_type;
+	second_int.type = integer_type;
+
+	first_int.value = p_equation->equation.first_operand;
+	second_int.value = p_equation->equation.second_operand;
+
+	calc_status = calculate_result(operator,
+								   &first_int,
+								   &second_int,
+								   p_result);
+
+	if (CALC_STATUS_OK != calc_status)
+	{
+		status = EQ_STATUS_NOT_SOLVED;
+		goto END;
+	}
+
+END:
+	return status;
+}
+
+static equation_status_t get_equation_operator(uint8_t operator_code,
+											   operator_t * p_operator)
+{
+	equation_status_t status = EQ_STATUS_OK;
+
+	if (NULL == p_operator)
+	{
+		status = EQ_STATUS_NULL_POINTER;
+		goto END;
+	}
+	
+	if ((OPERATOR_ADD > operator_code) || 
+		(OPERATOR_RIGHT_ROTATE < operator_code))
+	{
+		status = EQ_STATUS_INVALID_OPERATOR;
+		goto END;
+	}
+
+	* p_operator = (operator_t)operator_code;
+
+END:
+	return status;
 }
 /*** end of the file ***/

@@ -9,10 +9,10 @@
 #include "calc_status.h"
 #include "bit_operations.h"
 
-#define UINT32_BIT_COUNT (32U)
+#define UINT64_BIT_COUNT (64U)
 #define ZERO_UNSIGNED (0U)
 
-calc_status_t l_shift(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
+calc_status_t l_shift(uint64_t f_num, uint64_t s_num, uint64_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
 	
@@ -20,7 +20,7 @@ calc_status_t l_shift(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	{
 		status = CALC_STATUS_NULL_POINTER;
 	}
-	else if (UINT32_BIT_COUNT <= s_num)
+	else if (UINT64_BIT_COUNT <= s_num)
 	{
 		status = CALC_STATUS_INVALID_SHIFT;
 	}
@@ -32,7 +32,7 @@ calc_status_t l_shift(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	return status;
 }
 
-calc_status_t r_shift(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
+calc_status_t r_shift(uint64_t f_num, uint64_t s_num, uint64_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
 
@@ -40,7 +40,7 @@ calc_status_t r_shift(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	{
 		status = CALC_STATUS_NULL_POINTER;
 	}
-	else if (UINT32_BIT_COUNT <= s_num)
+	else if (UINT64_BIT_COUNT <= s_num)
 	{
 		status = CALC_STATUS_INVALID_SHIFT;
 	}
@@ -52,7 +52,7 @@ calc_status_t r_shift(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	return status;
 }
 
-calc_status_t op_and(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
+calc_status_t op_and(uint64_t f_num, uint64_t s_num, uint64_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
 
@@ -68,7 +68,7 @@ calc_status_t op_and(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	return status;
 }
 
-calc_status_t op_or(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
+calc_status_t op_or(uint64_t f_num, uint64_t s_num, uint64_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
 
@@ -84,7 +84,7 @@ calc_status_t op_or(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	return status;
 }
 
-calc_status_t op_xor(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
+calc_status_t op_xor(uint64_t f_num, uint64_t s_num, uint64_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
 
@@ -100,10 +100,10 @@ calc_status_t op_xor(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	return status;
 }
 
-calc_status_t l_rotate(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
+calc_status_t l_rotate(uint64_t f_num, uint64_t s_num, uint64_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
-	uint32_t num_of_rotations;
+	uint64_t num_of_rotations;
 
 	if (NULL == p_result)
 	{
@@ -111,7 +111,7 @@ calc_status_t l_rotate(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	}
 	else
 	{
-		num_of_rotations = s_num % UINT32_BIT_COUNT;
+		num_of_rotations = s_num % UINT64_BIT_COUNT;
 
 		if (ZERO_UNSIGNED == num_of_rotations)
 		{
@@ -120,17 +120,17 @@ calc_status_t l_rotate(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 		else
 		{
 			* p_result = (f_num << num_of_rotations) |
-						 (f_num >> (UINT32_BIT_COUNT - num_of_rotations));
+						 (f_num >> (UINT64_BIT_COUNT - num_of_rotations));
 		}
 	}
 
 	return status;
 }
 
-calc_status_t r_rotate(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
+calc_status_t r_rotate(uint64_t f_num, uint64_t s_num, uint64_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
-	uint32_t num_of_rotations;
+	uint64_t num_of_rotations;
 
 	if (NULL == p_result)
 	{
@@ -138,7 +138,7 @@ calc_status_t r_rotate(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 	}
 	else
 	{
-		num_of_rotations = s_num % UINT32_BIT_COUNT;
+		num_of_rotations = s_num % UINT64_BIT_COUNT;
 
 		if (ZERO_UNSIGNED == num_of_rotations)
 		{
@@ -147,7 +147,7 @@ calc_status_t r_rotate(uint32_t f_num, uint32_t s_num, uint32_t * p_result)
 		else
 		{
 			* p_result = (f_num >> num_of_rotations) |
-						 (f_num << (UINT32_BIT_COUNT - num_of_rotations));
+						 (f_num << (UINT64_BIT_COUNT - num_of_rotations));
 		}
 	}
 
