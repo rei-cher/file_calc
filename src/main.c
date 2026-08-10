@@ -22,37 +22,31 @@ static void print_usage(const char * p_name)
 int main(int argc, char ** argv)
 {
 	int exit_status = EXIT_FAILURE;
-	// TODO: move validation logic into directory.c
-	// have function (validate_directories(const char agrv[input], const char argv[output]))
-	// return dir_status_t
-	dir_status_t input_dir_status = DIR_STATUS_OK;
-	dir_status_t output_dir_status = DIR_STATUS_OK;
+
+	dir_status_t dir_status = DIR_STATUS_OK;
 
 	if (NUMBER_OF_ARGUMENTS != argc)
 	{
-		printf(stderr, "Incorrect number of argumentn");
-		print_usage(argv[PROGRAM_NAME]);
+		printf(stderr, "Incorrect number of arguments\n");
+		print_uasge(argv[PROGRAM_NAME]);
 		goto END;
 	}
 
-	input_dir_status = validate_directories(argv[INPUT_DIR]);
-
-	if (DIR_STATUS_OK != input_dir_status)
-	{
-		print_error(input_dir_status);
-		goto END;
-	}
-
-	output_dir_status = validate_directory(argv[OUTPUT_DIR]);
-
-	if (DIR_STATUS_DOESNT_EXIST == output_dir_status)
-	{
-		output_dir_status = create_dir(argv[OUTPUT_DIR]);
-	}
+	dir_status = prepare_directories(argv[INPUT_DIR],
+									 argv[OUTPUT_DIR]);
 
 	if (DIR_STATUS_OK != output_dir_status)
 	{
-		print_error(output_dir_status);
+		print_error(dir_status);
+		goto END;
+	}
+
+	dir_status = process_directories(argv[INPUT_DIR],
+									 argv[OUTPUT_DIR]);
+
+	if (DIR_STATUS_OK != dir_status)
+	{
+		print_error(dir_status);
 		goto END;
 	}
 

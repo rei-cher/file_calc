@@ -9,9 +9,11 @@
 
 #include "dir_status.h"
 
-dir_status_t validate_directory(const char * p_dir);
-dir_status_t create_dir(const char * p_dir);
+dir_status_t prepare_directories(const char * p_input_dir,
+								 const char * p_output_dir);
 
+dir_status_t process_directories(const char * p_input_dir,
+							   const char * p_output_dir);
 #endif
 
 /*** end of the file ***/

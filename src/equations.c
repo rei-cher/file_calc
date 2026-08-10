@@ -38,8 +38,6 @@ equation_status_t calculate_equations(FILE * p_input_file,
 		goto END;
 	}
 
-
-
 	for (uint64_t index = 0U; index < num_of_eq; index++)
 	{
 		unsolved_eq = (equation_t){0};
@@ -147,13 +145,6 @@ END:
 	return status;
 }
 
-// TODO:
-// 	parse equation
-// 	get_operator()
-// 	based on the operator determin integer type for 
-// 		result, first int, second int
-// 	once determined
-// 	calculate()
 static equation_status_t solve_equation(equation_t * p_equation,
 										integer_t * p_result)
 {

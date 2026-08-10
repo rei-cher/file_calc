@@ -171,7 +171,7 @@ calculate_arit	src/calculator.c	/^static calc_statuc calculate_arit(operator_t o
 calculate_bit	src/calculator.c	/^static calc_statuc calculate_bit(operator_t operator,$/;"	f	typeref:typename:calc_statuc	file:
 calculate_equations	src/equations.c	/^equation_status_t calculate_equations(FILE * p_input_file,$/;"	f	typeref:typename:equation_status_t
 calculate_result	src/calculator.c	/^calc_status_t calculate_result(operator_t operator,$/;"	f	typeref:typename:calc_status_t
-create_dir	src/directories.c	/^dir_status_t create_dir(const char * p_dir)$/;"	f	typeref:typename:dir_status_t
+create_dir	src/directories.c	/^static dir_status_t create_dir(const char * p_dir)$/;"	f	typeref:typename:dir_status_t	file:
 create_file	src/files.c	/^file_status_t create_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t
 dir_status_t	include/dir_status.h	/^} dir_status_t;$/;"	t	typeref:enum:__anon7bd5c6500103
 divide	src/calc_operations.c	/^calc_status_t divide(int64_t f_num, int64_t s_num, int64_t *p_result)$/;"	f	typeref:typename:calc_status_t
@@ -205,11 +205,13 @@ op_xor	src/bit_operations.c	/^calc_status_t op_xor(uint64_t f_num, uint64_t s_nu
 operator_t	include/calculator.h	/^} operator_t;$/;"	t	typeref:enum:__anon4a5d91580103
 opt_headers	include/files.h	/^	uint16_t opt_headers;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint16_t
 padding	include/equations.h	/^	uint8_t padding[PADDING_SIZE];$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t[]
+prepare_directories	src/directories.c	/^dir_status_t prepare_directories(const char * p_input_dir,$/;"	f	typeref:typename:dir_status_t
 print_error	src/calculator.c	/^void print_error(calc_status_t status)$/;"	f	typeref:typename:void
 print_result	src/calculator.c	/^void print_result(const integer_t * p_result)$/;"	f	typeref:typename:void
 print_usage	src/calculator.c	/^void print_usage(const char * p_name)$/;"	f	typeref:typename:void
 print_usage	src/main.c	/^static void print_usage(const char * p_name)$/;"	f	typeref:typename:void	file:
-process_file	src/files.c	/^file_status_t process_file(const char * p_filename)$/;"	f	typeref:typename:file_status_t
+process_directories	src/directories.c	/^dir_status_t process_directories(const char * p_input_dir,$/;"	f	typeref:typename:dir_status_t
+process_file	src/files.c	/^file_status_t process_file(const char * p_input_path,$/;"	f	typeref:typename:file_status_t
 r_rotate	src/bit_operations.c	/^calc_status_t r_rotate(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 r_shift	src/bit_operations.c	/^calc_status_t r_shift(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 read_header	src/files.c	/^static file_status_t read_header(FILE * p_file, file_header_t * p_header)$/;"	f	typeref:typename:file_status_t	file:
@@ -224,8 +226,8 @@ subtract	src/calc_operations.c	/^calc_status_t subtract(int64_t f_num, int64_t s
 type	include/calculator.h	/^	integer_type_t type;$/;"	m	struct:__anon4a5d91580408	typeref:typename:integer_type_t
 type	include/equations.h	/^	uint8_t type;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
 unsigned_value	include/calculator.h	/^	uint64_t unsigned_value;$/;"	m	union:__anon4a5d9158030a	typeref:typename:uint64_t
-validate_directory	src/directories.c	/^dir_status_t validate_directory(const char * p_dir)$/;"	f	typeref:typename:dir_status_t
+validate_directory	src/directories.c	/^static dir_status_t validate_directory(const char * p_dir)$/;"	f	typeref:typename:dir_status_t	file:
 validate_equation_format	src/equations.c	/^static equation_status_t validate_equation_format(FILE * p_file, equation_t *  p_equation)$/;"	f	typeref:typename:equation_status_t	file:
-validate_file	src/files.c	/^file_status_t validate_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t
+validate_file	src/files.c	/^static file_status_t validate_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t	file:
 value	include/calculator.h	/^	value_t	   value;$/;"	m	struct:__anon4a5d91580408	typeref:typename:value_t
 value_t	include/calculator.h	/^} value_t;$/;"	t	typeref:union:__anon4a5d9158030a

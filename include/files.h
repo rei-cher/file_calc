@@ -26,10 +26,10 @@ typedef struct
  *	Purpose: Should be used to validate file existance in the input directory
  *	and should not be used over created files in output directory
  */
-file_status_t validate_file(const char * p_file_path);
 
 file_status_t create_file(const char * p_file_path);
-file_status_t process_file(const char * p_filename);
+file_status_t process_file(const char * p_input_file,
+						   const char * p_output_file);
 
 #endif
 
