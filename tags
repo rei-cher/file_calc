@@ -41,6 +41,30 @@
 !_TAG_KIND_DESCRIPTION!CMake	p,project	/projects/
 !_TAG_KIND_DESCRIPTION!CMake	t,target	/targets/
 !_TAG_KIND_DESCRIPTION!CMake	v,variable	/variable definitions/
+!_TAG_KIND_DESCRIPTION!D	M,module	/modules/
+!_TAG_KIND_DESCRIPTION!D	T,template	/templates/
+!_TAG_KIND_DESCRIPTION!D	V,version	/version statements/
+!_TAG_KIND_DESCRIPTION!D	X,mixin	/mixins/
+!_TAG_KIND_DESCRIPTION!D	a,alias	/aliases/
+!_TAG_KIND_DESCRIPTION!D	c,class	/classes/
+!_TAG_KIND_DESCRIPTION!D	e,enumerator	/enumerators (values inside an enumeration)/
+!_TAG_KIND_DESCRIPTION!D	f,function	/function definitions/
+!_TAG_KIND_DESCRIPTION!D	g,enum	/enumeration names/
+!_TAG_KIND_DESCRIPTION!D	i,interface	/interfaces/
+!_TAG_KIND_DESCRIPTION!D	m,member	/class, struct, and union members/
+!_TAG_KIND_DESCRIPTION!D	n,namespace	/namespaces/
+!_TAG_KIND_DESCRIPTION!D	s,struct	/structure names/
+!_TAG_KIND_DESCRIPTION!D	u,union	/union names/
+!_TAG_KIND_DESCRIPTION!D	v,variable	/variable definitions/
+!_TAG_KIND_DESCRIPTION!JSON	a,array	/arrays/
+!_TAG_KIND_DESCRIPTION!JSON	b,boolean	/booleans/
+!_TAG_KIND_DESCRIPTION!JSON	n,number	/numbers/
+!_TAG_KIND_DESCRIPTION!JSON	o,object	/objects/
+!_TAG_KIND_DESCRIPTION!JSON	s,string	/strings/
+!_TAG_KIND_DESCRIPTION!JSON	z,null	/nulls/
+!_TAG_KIND_DESCRIPTION!Make	I,makefile	/makefiles/
+!_TAG_KIND_DESCRIPTION!Make	m,macro	/macros/
+!_TAG_KIND_DESCRIPTION!Make	t,target	/targets/
 !_TAG_KIND_DESCRIPTION!Markdown	S,subsection	/level 2 sections/
 !_TAG_KIND_DESCRIPTION!Markdown	T,l4subsection	/level 4 sections/
 !_TAG_KIND_DESCRIPTION!Markdown	c,chapter	/chapters/
@@ -53,6 +77,19 @@
 !_TAG_KIND_DESCRIPTION!Sh	f,function	/functions/
 !_TAG_KIND_DESCRIPTION!Sh	h,heredoc	/label for here document/
 !_TAG_KIND_DESCRIPTION!Sh	s,script	/script files/
+!_TAG_KIND_DESCRIPTION!TypeScript	C,constant	/constants/
+!_TAG_KIND_DESCRIPTION!TypeScript	G,generator	/generators/
+!_TAG_KIND_DESCRIPTION!TypeScript	a,alias	/aliases/
+!_TAG_KIND_DESCRIPTION!TypeScript	c,class	/classes/
+!_TAG_KIND_DESCRIPTION!TypeScript	e,enumerator	/enumerators (values inside an enumeration)/
+!_TAG_KIND_DESCRIPTION!TypeScript	f,function	/functions/
+!_TAG_KIND_DESCRIPTION!TypeScript	g,enum	/enums/
+!_TAG_KIND_DESCRIPTION!TypeScript	i,interface	/interfaces/
+!_TAG_KIND_DESCRIPTION!TypeScript	m,method	/methods/
+!_TAG_KIND_DESCRIPTION!TypeScript	n,namespace	/namespaces/
+!_TAG_KIND_DESCRIPTION!TypeScript	p,property	/properties/
+!_TAG_KIND_DESCRIPTION!TypeScript	v,variable	/variables/
+!_TAG_KIND_DESCRIPTION!Yaml	a,anchor	/anchors/
 !_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
@@ -60,8 +97,13 @@
 !_TAG_PARSER_VERSION!C	1.1	/current.age/
 !_TAG_PARSER_VERSION!C++	2.2	/current.age/
 !_TAG_PARSER_VERSION!CMake	0.0	/current.age/
+!_TAG_PARSER_VERSION!D	0.0	/current.age/
+!_TAG_PARSER_VERSION!JSON	0.0	/current.age/
+!_TAG_PARSER_VERSION!Make	1.1	/current.age/
 !_TAG_PARSER_VERSION!Markdown	1.1	/current.age/
 !_TAG_PARSER_VERSION!Sh	0.0	/current.age/
+!_TAG_PARSER_VERSION!TypeScript	0.0	/current.age/
+!_TAG_PARSER_VERSION!Yaml	0.0	/current.age/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
 !_TAG_PROC_CWD	/home/reicher/Projects/tool_dev_projects/file_calc/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
@@ -81,8 +123,22 @@
 !_TAG_ROLE_DESCRIPTION!C++!module	imported	/imported with "imported ..."/
 !_TAG_ROLE_DESCRIPTION!C++!module	partOwner	/used for specifying a partition/
 !_TAG_ROLE_DESCRIPTION!C++!partition	imported	/imported with "imported ..."/
+!_TAG_ROLE_DESCRIPTION!Make!makefile	included	/included/
+!_TAG_ROLE_DESCRIPTION!Make!makefile	optional	/optionally included/
 !_TAG_ROLE_DESCRIPTION!Sh!heredoc	endmarker	/end marker/
 !_TAG_ROLE_DESCRIPTION!Sh!script	loaded	/loaded/
+!_TAG_ROLE_DESCRIPTION!Yaml!anchor	alias	/alias/
+$(VERBOSE).SILENT	build/Makefile	/^$(VERBOSE).SILENT:$/;"	t
+$(VERBOSE)MAKESILENT	build/Makefile	/^$(VERBOSE)MAKESILENT = -s$/;"	m
+%	build/Makefile	/^% : %,v$/;"	t
+%	build/Makefile	/^% : RCS\/%$/;"	t
+%	build/Makefile	/^% : RCS\/%,v$/;"	t
+%	build/Makefile	/^% : SCCS\/s.%$/;"	t
+%	build/Makefile	/^% : s.%$/;"	t
+0	build/CMakeFiles/InstallScripts.json	/^		"\/home\/reicher\/Projects\/tool_dev_projects\/file_calc\/build\/cmake_install.cmake"$/;"	s	array:InstallScripts
+ARCHITECTURE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID$/;"	d	file:
 BIT_OPERATIONS_H	include/bit_operations.h	/^#define BIT_OPERATIONS_H$/;"	d
 CALCULATOR_H	include/calculator.h	/^#define CALCULATOR_H$/;"	d
 CALC_OPERATIONS_H	include/calc_operations.h	/^#define CALC_OPERATIONS_H$/;"	d
@@ -97,18 +153,151 @@ CALC_STATUS_INVALID_SHIFT	include/calc_status.h	/^	CALC_STATUS_INVALID_SHIFT,$/;
 CALC_STATUS_NULL_POINTER	include/calc_status.h	/^	CALC_STATUS_NULL_POINTER,$/;"	e	enum:__anon93c894e40103
 CALC_STATUS_OK	include/calc_status.h	/^	CALC_STATUS_OK = 0,$/;"	e	enum:__anon93c894e40103
 CALC_STATUS_OVERFLOW	include/calc_status.h	/^	CALC_STATUS_OVERFLOW,$/;"	e	enum:__anon93c894e40103
+CMAKE_AR	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_AR "\/usr\/bin\/ar")$/;"	v
+CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/reicher\/Projects\/tool_dev_projects\/file_calc\/build$/;"	m
+CMAKE_C11_COMPILE_FEATURES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C11_COMPILE_FEATURES "c_std_11;c_static_assert")$/;"	v
+CMAKE_C17_COMPILE_FEATURES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C17_COMPILE_FEATURES "c_std_17")$/;"	v
+CMAKE_C23_COMPILE_FEATURES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C23_COMPILE_FEATURES "c_std_23")$/;"	v
+CMAKE_C90_COMPILE_FEATURES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C90_COMPILE_FEATURES "c_std_90;c_function_prototypes")$/;"	v
+CMAKE_C99_COMPILE_FEATURES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C99_COMPILE_FEATURES "c_std_99;c_restrict;c_variadic_macros")$/;"	v
+CMAKE_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^  set(CMAKE_CL_SHOWINCLUDES_PREFIX "${CMAKE_C_CL_SHOWINCLUDES_PREFIX}")$/;"	v
+CMAKE_COMMAND	build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
+CMAKE_COMPILER_IS_GNUCC	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_COMPILER_IS_GNUCC 1)$/;"	v
+CMAKE_CROSSCOMPILING	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
+CMAKE_CROSSCOMPILING	build/cmake_install.cmake	/^  set(CMAKE_CROSSCOMPILING "FALSE")$/;"	v
+CMAKE_CXX_INCLUDE_REGEX_COMPLAIN	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_CXX_INCLUDE_REGEX_COMPLAIN ${CMAKE_C_INCLUDE_REGEX_COMPLAIN})$/;"	v
+CMAKE_CXX_INCLUDE_REGEX_SCAN	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_CXX_INCLUDE_REGEX_SCAN ${CMAKE_C_INCLUDE_REGEX_SCAN})$/;"	v
+CMAKE_C_ABI_COMPILED	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_ABI_COMPILED TRUE)$/;"	v
+CMAKE_C_BYTE_ORDER	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_BYTE_ORDER "LITTLE_ENDIAN")$/;"	v
+CMAKE_C_CL_SHOWINCLUDES_PREFIX	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_CL_SHOWINCLUDES_PREFIX "")$/;"	v
+CMAKE_C_COMPILER	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER "\/usr\/bin\/cc")$/;"	v
+CMAKE_C_COMPILER_ABI	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ABI "ELF")$/;"	v
+CMAKE_C_COMPILER_APPLE_SYSROOT	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_APPLE_SYSROOT "")$/;"	v
+CMAKE_C_COMPILER_AR	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_AR "\/usr\/bin\/gcc-ar")$/;"	v
+CMAKE_C_COMPILER_ARCHITECTURE_ID	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ARCHITECTURE_ID "x86_64")$/;"	v
+CMAKE_C_COMPILER_ARG1	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ARG1 "")$/;"	v
+CMAKE_C_COMPILER_ENV_VAR	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ENV_VAR "CC")$/;"	v
+CMAKE_C_COMPILER_FRONTEND_VARIANT	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_FRONTEND_VARIANT "GNU")$/;"	v
+CMAKE_C_COMPILER_ID	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ID "GNU")$/;"	v
+CMAKE_C_COMPILER_ID_RUN	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_ID_RUN 1)$/;"	v
+CMAKE_C_COMPILER_LINKER	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LINKER "\/usr\/bin\/ld")$/;"	v
+CMAKE_C_COMPILER_LINKER_ARCHITECTURE_FLAGS	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LINKER_ARCHITECTURE_FLAGS "-m;elf")$/;"	v
+CMAKE_C_COMPILER_LINKER_FRONTEND_VARIANT	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LINKER_FRONTEND_VARIANT "GNU")$/;"	v
+CMAKE_C_COMPILER_LINKER_ID	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LINKER_ID "GNU")$/;"	v
+CMAKE_C_COMPILER_LINKER_VERSION	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LINKER_VERSION "2.47")$/;"	v
+CMAKE_C_COMPILER_LOADED	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_LOADED 1)$/;"	v
+CMAKE_C_COMPILER_RANLIB	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_RANLIB "\/usr\/bin\/gcc-ranlib")$/;"	v
+CMAKE_C_COMPILER_VERSION	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_VERSION "16.1.1")$/;"	v
+CMAKE_C_COMPILER_VERSION_INTERNAL	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_VERSION_INTERNAL "")$/;"	v
+CMAKE_C_COMPILER_WORKS	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_WORKS TRUE)$/;"	v
+CMAKE_C_COMPILER_WRAPPER	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILER_WRAPPER "")$/;"	v
+CMAKE_C_COMPILE_FEATURES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_COMPILE_FEATURES "c_std_90;c_function_prototypes;c_std_99;c_restrict;c_variadic_macr/;"	v
 CMAKE_C_EXTENSIONS	CMakeLists.txt	/^set(CMAKE_C_EXTENSIONS        OFF)$/;"	v
+CMAKE_C_EXTENSIONS_COMPUTED_DEFAULT	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_EXTENSIONS_COMPUTED_DEFAULT "ON")$/;"	v
+CMAKE_C_IGNORE_EXTENSIONS	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_IGNORE_EXTENSIONS h;H;o;O;obj;OBJ;def;DEF;rc;RC)$/;"	v
+CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/16\/include;\/us/;"	v
+CMAKE_C_IMPLICIT_LINK_DIRECTORIES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "\/usr\/lib\/gcc\/x86_64-pc-linux-gnu\/16;\/usr\/lib;\/lib/;"	v
+CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")$/;"	v
+CMAKE_C_IMPLICIT_LINK_LIBRARIES	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "gcc;gcc_s_asneeded;atomic_asneeded;c;gcc;gcc_s_asneeded")$/;"	v
+CMAKE_C_INCLUDE_REGEX_COMPLAIN	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_C_INCLUDE_REGEX_COMPLAIN "^$")$/;"	v
+CMAKE_C_INCLUDE_REGEX_SCAN	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_C_INCLUDE_REGEX_SCAN "^.*$")$/;"	v
+CMAKE_C_LIBRARY_ARCHITECTURE	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_LIBRARY_ARCHITECTURE "")$/;"	v
+CMAKE_C_LINKER_DEPFILE_SUPPORTED	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_LINKER_DEPFILE_SUPPORTED TRUE)$/;"	v
+CMAKE_C_LINKER_PREFERENCE	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_LINKER_PREFERENCE 10)$/;"	v
+CMAKE_C_LINKER_PUSHPOP_STATE_SUPPORTED	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_LINKER_PUSHPOP_STATE_SUPPORTED TRUE)$/;"	v
+CMAKE_C_PLATFORM_ID	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_PLATFORM_ID "Linux")$/;"	v
+CMAKE_C_SIMULATE_ID	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_SIMULATE_ID "")$/;"	v
+CMAKE_C_SIMULATE_VERSION	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_SIMULATE_VERSION "")$/;"	v
+CMAKE_C_SIZEOF_DATA_PTR	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_SIZEOF_DATA_PTR "8")$/;"	v
+CMAKE_C_SOURCE_FILE_EXTENSIONS	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_SOURCE_FILE_EXTENSIONS c;m)$/;"	v
 CMAKE_C_STANDARD	CMakeLists.txt	/^set(CMAKE_C_STANDARD          17)$/;"	v
+CMAKE_C_STANDARD_COMPUTED_DEFAULT	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "23")$/;"	v
+CMAKE_C_STANDARD_LATEST	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_STANDARD_LATEST "23")$/;"	v
 CMAKE_C_STANDARD_REQUIRED	CMakeLists.txt	/^set(CMAKE_C_STANDARD_REQUIRED ON)$/;"	v
+CMAKE_DEPENDS_DEPENDENCY_FILES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_DEPENDENCY_FILES$/;"	v
+CMAKE_DEPENDS_GENERATOR	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")$/;"	v
+CMAKE_DEPENDS_IN_PROJECT_ONLY	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)$/;"	v
+CMAKE_DEPENDS_LANGUAGES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_LANGUAGES$/;"	v
+CMAKE_DEPEND_INFO_FILES	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_DEPEND_INFO_FILES$/;"	v
+CMAKE_FORCE_UNIX_PATHS	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_FORCE_UNIX_PATHS 1)$/;"	v
+CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES$/;"	v
+CMAKE_Fortran_TARGET_LINKED_INFO_FILES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES$/;"	v
+CMAKE_Fortran_TARGET_MODULE_DIR	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_MODULE_DIR "")$/;"	v
+CMAKE_HOST_SYSTEM	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM "Linux-7.1.5-arch1-2")$/;"	v
+CMAKE_HOST_SYSTEM_NAME	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_NAME "Linux")$/;"	v
+CMAKE_HOST_SYSTEM_PROCESSOR	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")$/;"	v
+CMAKE_HOST_SYSTEM_VERSION	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_VERSION "7.1.5-arch1-2")$/;"	v
+CMAKE_INSTALL_COMPONENT	build/cmake_install.cmake	/^    set(CMAKE_INSTALL_COMPONENT "${COMPONENT}")$/;"	v
+CMAKE_INSTALL_COMPONENT	build/cmake_install.cmake	/^    set(CMAKE_INSTALL_COMPONENT)$/;"	v
+CMAKE_INSTALL_CONFIG_NAME	build/cmake_install.cmake	/^    set(CMAKE_INSTALL_CONFIG_NAME "")$/;"	v
+CMAKE_INSTALL_MANIFEST	build/cmake_install.cmake	/^    set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")$/;"	v
+CMAKE_INSTALL_MANIFEST	build/cmake_install.cmake	/^    set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INST_COMP_HASH}.txt")$/;"	v
+CMAKE_INSTALL_MANIFEST	build/cmake_install.cmake	/^  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")$/;"	v
+CMAKE_INSTALL_PREFIX	build/cmake_install.cmake	/^  set(CMAKE_INSTALL_PREFIX "\/usr\/local")$/;"	v
+CMAKE_INSTALL_SO_NO_EXE	build/cmake_install.cmake	/^  set(CMAKE_INSTALL_SO_NO_EXE "0")$/;"	v
+CMAKE_INTERNAL_PLATFORM_ABI	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^  set(CMAKE_INTERNAL_PLATFORM_ABI "${CMAKE_C_COMPILER_ABI}")$/;"	v
+CMAKE_LIBRARY_ARCHITECTURE	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^  set(CMAKE_LIBRARY_ARCHITECTURE "")$/;"	v
+CMAKE_LINKER	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_LINKER "\/usr\/bin\/ld")$/;"	v
+CMAKE_LINKER_LINK	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_LINKER_LINK "")$/;"	v
+CMAKE_LINKER_LLD	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_LINKER_LLD "")$/;"	v
+CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED TRUE)$/;"	v
+CMAKE_MAKEFILE_DEPENDS	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_MAKEFILE_DEPENDS$/;"	v
+CMAKE_MAKEFILE_OUTPUTS	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_MAKEFILE_OUTPUTS$/;"	v
+CMAKE_MAKEFILE_PRODUCTS	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_MAKEFILE_PRODUCTS$/;"	v
+CMAKE_MT	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_MT "")$/;"	v
+CMAKE_OBJDUMP	build/cmake_install.cmake	/^  set(CMAKE_OBJDUMP "\/usr\/bin\/objdump")$/;"	v
+CMAKE_RANLIB	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_RANLIB "\/usr\/bin\/ranlib")$/;"	v
+CMAKE_RELATIVE_PATH_TOP_BINARY	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_RELATIVE_PATH_TOP_BINARY "\/home\/reicher\/Projects\/tool_dev_projects\/file_calc\/bui/;"	v
+CMAKE_RELATIVE_PATH_TOP_SOURCE	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_RELATIVE_PATH_TOP_SOURCE "\/home\/reicher\/Projects\/tool_dev_projects\/file_calc")$/;"	v
+CMAKE_SIZEOF_VOID_P	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^  set(CMAKE_SIZEOF_VOID_P "${CMAKE_C_SIZEOF_DATA_PTR}")$/;"	v
+CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/home\/reicher\/Projects\/tool_dev_projects\/file_calc$/;"	m
+CMAKE_SYSTEM	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_SYSTEM "Linux-7.1.5-arch1-2")$/;"	v
+CMAKE_SYSTEM_LOADED	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_LOADED 1)$/;"	v
+CMAKE_SYSTEM_NAME	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_NAME "Linux")$/;"	v
+CMAKE_SYSTEM_PROCESSOR	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_PROCESSOR "x86_64")$/;"	v
+CMAKE_SYSTEM_VERSION	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_VERSION "7.1.5-arch1-2")$/;"	v
+CMAKE_TAPI	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")$/;"	v
+COMPILER_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
+COMPILER_VERSION	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL_STR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL_STR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
+C_STD	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define C_STD /;"	d	file:
+C_STD	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define C_STD __POCC_STDC/;"	d	file:
+C_STD_11	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_11 /;"	d	file:
+C_STD_17	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_17 /;"	d	file:
+C_STD_23	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_23 /;"	d	file:
+C_STD_99	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define C_STD_99 /;"	d	file:
+C_VERSION	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION /;"	d	file:
+C_VERSION	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION$/;"	d	file:
+DEC	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
 DIRECTORIES_H	include/directories.h	/^#define DIRECTORIES_H$/;"	d
-DIR_STATUS_CANT_CREATE	include/dir_status.h	/^	DIR_STATUS_CANT_CREATE$/;"	e	enum:__anon7bd5c6500103
+DIR_STATUS_CANT_CREATE	include/dir_status.h	/^	DIR_STATUS_CANT_CREATE,$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_DOESNT_EXIST	include/dir_status.h	/^	DIR_STATUS_DOESNT_EXIST,$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_H	include/dir_status.h	/^#define DIR_STATUS_H$/;"	d
 DIR_STATUS_NOT_DIRECTORY	include/dir_status.h	/^	DIR_STATUS_NOT_DIRECTORY,$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_NULL_POINTER	include/dir_status.h	/^	DIR_STATUS_NULL_POINTER,$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_OK	include/dir_status.h	/^	DIR_STATUS_OK = 0,$/;"	e	enum:__anon7bd5c6500103
+DIR_STATUS_OPEN_ERROR	include/dir_status.h	/^	DIR_STATUS_OPEN_ERROR$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_STAT_ERROR	include/dir_status.h	/^	DIR_STATUS_STAT_ERROR,$/;"	e	enum:__anon7bd5c6500103
 DIR_STATUS_WRONG_PERMISSIONS	include/dir_status.h	/^	DIR_STATUS_WRONG_PERMISSIONS,$/;"	e	enum:__anon7bd5c6500103
+EQUALS	build/Makefile	/^EQUALS = =$/;"	m
 EQUATIONS_H	include/equations.h	/^#define EQUATIONS_H$/;"	d
 EQUATION_STATUS_H	include/equation_status.h	/^#define EQUATION_STATUS_H$/;"	d
 EQ_STATUS_INVALID_OPERATOR	include/equation_status.h	/^	EQ_STATUS_INVALID_OPERATOR$/;"	e	enum:__anon7f708b970103
@@ -116,23 +305,34 @@ EQ_STATUS_NOT_SOLVED	include/equation_status.h	/^	EQ_STATUS_NOT_SOLVED,$/;"	e	en
 EQ_STATUS_NULL_POINTER	include/equation_status.h	/^	EQ_STATUS_NULL_POINTER,$/;"	e	enum:__anon7f708b970103
 EQ_STATUS_OK	include/equation_status.h	/^	EQ_STATUS_OK = 0,$/;"	e	enum:__anon7f708b970103
 EQ_STATUS_READ_ERROR	include/equation_status.h	/^	EQ_STATUS_READ_ERROR,$/;"	e	enum:__anon7f708b970103
+EQ_STATUS_WRITE_ERROR	include/equation_status.h	/^	EQ_STATUS_WRITE_ERROR,$/;"	e	enum:__anon7f708b970103
+ERRORS_H	include/errors.h	/^#define ERRORS_H$/;"	d
+ERROR_TYPE_CALCULATOR	include/errors.h	/^	ERROR_TYPE_CALCULATOR$/;"	e	enum:__anon50192deb0103
+ERROR_TYPE_DIRECTORY	include/errors.h	/^	ERROR_TYPE_DIRECTORY = 0,$/;"	e	enum:__anon50192deb0103
+ERROR_TYPE_EQUATION	include/errors.h	/^	ERROR_TYPE_EQUATION,$/;"	e	enum:__anon50192deb0103
+ERROR_TYPE_FILE	include/errors.h	/^	ERROR_TYPE_FILE,$/;"	e	enum:__anon50192deb0103
 EXECUTABLE_NAME	CMakeLists.txt	/^set(EXECUTABLE_NAME  simplecalc)$/;"	v
 FILES_H	include/files.h	/^#define FILES_H$/;"	d
-FILE_STATUS_DOESNT_EXISTS	include/file_status.h	/^	FILE_STATUS_DOESNT_EXISTS,$/;"	e	enum:__anon1195beb10103
+FILE_STATUS_DOESNT_EXIST	include/file_status.h	/^	FILE_STATUS_DOESNT_EXIST,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_H	include/file_status.h	/^#define FILE_STATUS_H$/;"	d
 FILE_STATUS_INVALID_MAGIC	include/file_status.h	/^	FILE_STATUS_INVALID_MAGIC,$/;"	e	enum:__anon1195beb10103
+FILE_STATUS_NOT_EQU	include/file_status.h	/^	FILE_STATUS_NOT_EQU$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_NOT_FILE	include/file_status.h	/^	FILE_STATUS_NOT_FILE,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_NULL_POINTER	include/file_status.h	/^	FILE_STATUS_NULL_POINTER,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_OK	include/file_status.h	/^	FILE_STATUS_OK = 0,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_OPEN_ERROR	include/file_status.h	/^	FILE_STATUS_OPEN_ERROR,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_READ_ERROR	include/file_status.h	/^	FILE_STATUS_READ_ERROR,$/;"	e	enum:__anon1195beb10103
-FILE_STATUS_SEEK_ERROR	include/file_status.h	/^	FILE_STATUS_SEEK_ERROR$/;"	e	enum:__anon1195beb10103
+FILE_STATUS_SEEK_ERROR	include/file_status.h	/^	FILE_STATUS_SEEK_ERROR,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_STAT_ERROR	include/file_status.h	/^	FILE_STATUS_STAT_ERROR,$/;"	e	enum:__anon1195beb10103
+FILE_STATUS_WRITE_ERROR	include/file_status.h	/^	FILE_STATUS_WRITE_ERROR,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_WRONG_PERMISSIONS	include/file_status.h	/^	FILE_STATUS_WRONG_PERMISSIONS,$/;"	e	enum:__anon1195beb10103
 FIRST_CHARACTER	src/calculator.c	/^#define FIRST_CHARACTER /;"	d	file:
+HEX	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
+ID_VOID_MAIN	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
 INPUT_DIR	src/main.c	/^#define INPUT_DIR /;"	d	file:
 INTEGER_TYPE_SIGNED	include/calculator.h	/^	INTEGER_TYPE_SIGNED = 0x01U,$/;"	e	enum:__anon4a5d91580203
 INTEGER_TYPE_UNSIGNED	include/calculator.h	/^	INTEGER_TYPE_UNSIGNED = 0x02U$/;"	e	enum:__anon4a5d91580203
+InstallScripts	build/CMakeFiles/InstallScripts.json	/^	"InstallScripts" : $/;"	a
 Instructions	README.md	/^# Instructions$/;"	c
 NUMBER_OF_ARGUMENTS	src/main.c	/^#define NUMBER_OF_ARGUMENTS /;"	d	file:
 OPERATOR_ADD	include/calculator.h	/^	OPERATOR_ADD = 0x01U,$/;"	e	enum:__anon4a5d91580103
@@ -149,8 +349,27 @@ OPERATOR_SUBTRACT	include/calculator.h	/^	OPERATOR_SUBTRACT = 0x02U,$/;"	e	enum:
 OPERATOR_XOR	include/calculator.h	/^	OPERATOR_XOR = 0x0AU,$/;"	e	enum:__anon4a5d91580103
 OUTPUT_DIR	src/main.c	/^#define OUTPUT_DIR /;"	d	file:
 PADDING_SIZE	include/equations.h	/^#define PADDING_SIZE /;"	d
+PLATFORM_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID$/;"	d	file:
 PROGRAM_NAME	src/main.c	/^#define PROGRAM_NAME /;"	d	file:
+Parallel	build/CMakeFiles/InstallScripts.json	/^	"Parallel" : false$/;"	b
+RM	build/Makefile	/^RM = \/usr\/bin\/cmake -E rm -f$/;"	m
+SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SIMULATE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_ID /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_PATCH /;"	d	file:
 SINGLE_OBJECT_COUNT	src/equations.c	/^#define SINGLE_OBJECT_COUNT /;"	d	file:
+SINGLE_OBJECT_COUNT	src/files.c	/^#define SINGLE_OBJECT_COUNT /;"	d	file:
+STRINGIFY	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(X) STRINGIFY_/;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(/;"	d	file:
 UINT64_BIT_COUNT	src/bit_operations.c	/^#define UINT64_BIT_COUNT /;"	d	file:
 ZERO_UNSIGNED	src/bit_operations.c	/^#define ZERO_UNSIGNED /;"	d	file:
 __anon1195beb10103	include/file_status.h	/^{$/;"	g
@@ -161,40 +380,67 @@ __anon4a5d91580103	include/calculator.h	/^{$/;"	g
 __anon4a5d91580203	include/calculator.h	/^{$/;"	g
 __anon4a5d9158030a	include/calculator.h	/^{$/;"	u
 __anon4a5d91580408	include/calculator.h	/^{$/;"	s
+__anon50192deb0103	include/errors.h	/^{$/;"	g
 __anon7bd5c6500103	include/dir_status.h	/^{$/;"	g
 __anon7f708b970103	include/equation_status.h	/^{$/;"	g
 __anon93c894e40103	include/calc_status.h	/^{$/;"	g
 __anone4a1c5010108	include/files.h	/^{$/;"	s
+__has_include	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define __has_include(/;"	d	file:
 add	src/calc_operations.c	/^calc_status_t add(int64_t f_num, int64_t s_num, int64_t * p_result)$/;"	f	typeref:typename:calc_status_t
+all	build/Makefile	/^all: cmake_check_build_system$/;"	t
 calc_status_t	include/calc_status.h	/^} calc_status_t;$/;"	t	typeref:enum:__anon93c894e40103
-calculate_arit	src/calculator.c	/^static calc_statuc calculate_arit(operator_t operator,$/;"	f	typeref:typename:calc_statuc	file:
-calculate_bit	src/calculator.c	/^static calc_statuc calculate_bit(operator_t operator,$/;"	f	typeref:typename:calc_statuc	file:
+calculate_arit	src/calculator.c	/^static calc_status_t calculate_arit(operator_t operator,$/;"	f	typeref:typename:calc_status_t	file:
+calculate_bit	src/calculator.c	/^static calc_status_t calculate_bit(operator_t operator,$/;"	f	typeref:typename:calc_status_t	file:
 calculate_equations	src/equations.c	/^equation_status_t calculate_equations(FILE * p_input_file,$/;"	f	typeref:typename:equation_status_t
 calculate_result	src/calculator.c	/^calc_status_t calculate_result(operator_t operator,$/;"	f	typeref:typename:calc_status_t
+clean	build/Makefile	/^clean:$/;"	t
+clean/fast	build/Makefile	/^clean\/fast: clean$/;"	t
+cmake_check_build_system	build/Makefile	/^cmake_check_build_system:$/;"	t
+cmake_force	build/Makefile	/^cmake_force:$/;"	t
+const	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
 create_dir	src/directories.c	/^static dir_status_t create_dir(const char * p_dir)$/;"	f	typeref:typename:dir_status_t	file:
-create_file	src/files.c	/^file_status_t create_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t
+default_target	build/Makefile	/^default_target: all$/;"	t
+depend	build/Makefile	/^depend:$/;"	t
 dir_status_t	include/dir_status.h	/^} dir_status_t;$/;"	t	typeref:enum:__anon7bd5c6500103
 divide	src/calc_operations.c	/^calc_status_t divide(int64_t f_num, int64_t s_num, int64_t *p_result)$/;"	f	typeref:typename:calc_status_t
+edit_cache	build/Makefile	/^edit_cache:$/;"	t
+edit_cache/fast	build/Makefile	/^edit_cache\/fast: edit_cache$/;"	t
 eq_offset	include/files.h	/^	uint32_t eq_offset;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint32_t
 equation	include/equations.h	/^	serialized_eq_t equation;$/;"	m	struct:__anon13b65d670208	typeref:typename:serialized_eq_t
 equation_status_t	include/equation_status.h	/^} equation_status_t;$/;"	t	typeref:enum:__anon7f708b970103
 equation_t	include/equations.h	/^} equation_t;$/;"	t	typeref:struct:__anon13b65d670208
+error_type_t	include/errors.h	/^} error_type_t;$/;"	t	typeref:enum:__anon50192deb0103
 file_header_t	include/files.h	/^} file_header_t;$/;"	t	typeref:struct:__anone4a1c5010108
 file_id	include/files.h	/^	uint64_t file_id;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint64_t
 file_status_t	include/file_status.h	/^} file_status_t;$/;"	t	typeref:enum:__anon1195beb10103
 first_operand	include/equations.h	/^	value_t first_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:value_t
 flag	include/equations.h	/^	uint8_t flag;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t
+flag	include/equations.h	/^	uint8_t flag;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
 flag	include/files.h	/^	uint8_t flag;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint8_t
-flags	include/equations.h	/^	uint8_t flags;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
 get_equation_operator	src/equations.c	/^static equation_status_t get_equation_operator(uint8_t operator_code,$/;"	f	typeref:typename:equation_status_t	file:
 get_integer_type	src/calculator.c	/^integer_type_t get_integer_type(operator_t operator)$/;"	f	typeref:typename:integer_type_t
+help	build/Makefile	/^help:$/;"	t
 id	include/equations.h	/^	uint32_t id;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint32_t
 id	include/equations.h	/^	uint32_t id;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint32_t
+info_arch	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
+info_compiler	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
+info_cray	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v	typeref:typename:char const *
+info_language_extensions_default	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_extensions_default = "INFO" ":" "extensions_default["$/;"	v	typeref:typename:const char *
+info_language_standard_default	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_standard_default =$/;"	v	typeref:typename:const char *
+info_platform	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
+info_simulate	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
+info_simulate_version	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
+info_version	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v	typeref:typename:char const[]
+info_version	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_version = "INFO" ":" "compiler_version[" COMPILER_VERSION "]";$/;"	v	typeref:typename:char const *
+info_version_internal	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const info_version_internal[] = {$/;"	v	typeref:typename:char const[]
+info_version_internal	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_version_internal = "INFO" ":" "compiler_version_internal[" COMPILER_VERSION_INT/;"	v	typeref:typename:char const *
 integer_t	include/calculator.h	/^} integer_t;$/;"	t	typeref:struct:__anon4a5d91580408
 integer_type_t	include/calculator.h	/^} integer_type_t;$/;"	t	typeref:enum:__anon4a5d91580203
 l_rotate	src/bit_operations.c	/^calc_status_t l_rotate(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 l_shift	src/bit_operations.c	/^calc_status_t l_shift(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 magic	include/files.h	/^	uint32_t magic;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint32_t
+main	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/;"	f
+main	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f	typeref:typename:void
 main	src/main.c	/^int main(int argc, char ** argv)$/;"	f	typeref:typename:int
 modulo	src/calc_operations.c	/^calc_status_t modulo(int64_t f_num, int64_t s_num, int64_t *p_result)$/;"	f	typeref:typename:calc_status_t
 multiply	src/calc_operations.c	/^calc_status_t multiply(int64_t f_num, int64_t s_num, int64_t * p_result)$/;"	f	typeref:typename:calc_status_t
@@ -205,23 +451,76 @@ op_xor	src/bit_operations.c	/^calc_status_t op_xor(uint64_t f_num, uint64_t s_nu
 operator_t	include/calculator.h	/^} operator_t;$/;"	t	typeref:enum:__anon4a5d91580103
 opt_headers	include/files.h	/^	uint16_t opt_headers;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint16_t
 padding	include/equations.h	/^	uint8_t padding[PADDING_SIZE];$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t[]
+preinstall	build/Makefile	/^preinstall: all$/;"	t
+preinstall/fast	build/Makefile	/^preinstall\/fast:$/;"	t
 prepare_directories	src/directories.c	/^dir_status_t prepare_directories(const char * p_input_dir,$/;"	f	typeref:typename:dir_status_t
-print_error	src/calculator.c	/^void print_error(calc_status_t status)$/;"	f	typeref:typename:void
+print_calc_error	errors.c	/^static void print_calc_error(calc_status_t status)$/;"	f	typeref:typename:void	file:
+print_dir_error	errors.c	/^static void print_dir_error(dir_status_t status)$/;"	f	typeref:typename:void	file:
+print_equation_error	errors.c	/^static void print_equation_error(equation_status_t status)$/;"	f	typeref:typename:void	file:
+print_error	errors.c	/^void print_error(error_type_t error_type, int status)$/;"	f	typeref:typename:void
+print_file_error	errors.c	/^static void print_file_error(file_status_t status)$/;"	f	typeref:typename:void	file:
 print_result	src/calculator.c	/^void print_result(const integer_t * p_result)$/;"	f	typeref:typename:void
 print_usage	src/calculator.c	/^void print_usage(const char * p_name)$/;"	f	typeref:typename:void
 print_usage	src/main.c	/^static void print_usage(const char * p_name)$/;"	f	typeref:typename:void	file:
 process_directories	src/directories.c	/^dir_status_t process_directories(const char * p_input_dir,$/;"	f	typeref:typename:dir_status_t
-process_file	src/files.c	/^file_status_t process_file(const char * p_input_path,$/;"	f	typeref:typename:file_status_t
+process_file	src/files.c	/^file_status_t process_file(const char * p_input_dir,$/;"	f	typeref:typename:file_status_t
+qnxnto	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v	typeref:typename:char const *
 r_rotate	src/bit_operations.c	/^calc_status_t r_rotate(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 r_shift	src/bit_operations.c	/^calc_status_t r_shift(uint64_t f_num, uint64_t s_num, uint64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 read_header	src/files.c	/^static file_status_t read_header(FILE * p_file, file_header_t * p_header)$/;"	f	typeref:typename:file_status_t	file:
+rebuild_cache	build/Makefile	/^rebuild_cache:$/;"	t
+rebuild_cache/fast	build/Makefile	/^rebuild_cache\/fast: rebuild_cache$/;"	t
 second_operand	include/equations.h	/^	value_t second_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:value_t
 serialized_eq_t	include/equations.h	/^} serialized_eq_t;$/;"	t	typeref:struct:__anon13b65d670108
 signed_value	include/calculator.h	/^	int64_t signed_value;$/;"	m	union:__anon4a5d9158030a	typeref:typename:int64_t
 simple_calc	CMakeLists.txt	/^    simple_calc$/;"	p
+simplecalc	build/Makefile	/^simplecalc: cmake_check_build_system$/;"	t
+simplecalc/fast	build/Makefile	/^simplecalc\/fast:$/;"	t
 solution	include/equations.h	/^	value_t solution;$/;"	m	struct:__anon13b65d670308	typeref:typename:value_t
 solve_equation	src/equations.c	/^static equation_status_t solve_equation(equation_t * p_equation,$/;"	f	typeref:typename:equation_status_t	file:
 solved_t	include/equations.h	/^} solved_t;$/;"	t	typeref:struct:__anon13b65d670308
+src/bit_operations.c.i	build/Makefile	/^src\/bit_operations.c.i:$/;"	t
+src/bit_operations.c.o	build/Makefile	/^src\/bit_operations.c.o:$/;"	t
+src/bit_operations.c.s	build/Makefile	/^src\/bit_operations.c.s:$/;"	t
+src/bit_operations.i	build/Makefile	/^src\/bit_operations.i: src\/bit_operations.c.i$/;"	t
+src/bit_operations.o	build/Makefile	/^src\/bit_operations.o: src\/bit_operations.c.o$/;"	t
+src/bit_operations.s	build/Makefile	/^src\/bit_operations.s: src\/bit_operations.c.s$/;"	t
+src/calc_operations.c.i	build/Makefile	/^src\/calc_operations.c.i:$/;"	t
+src/calc_operations.c.o	build/Makefile	/^src\/calc_operations.c.o:$/;"	t
+src/calc_operations.c.s	build/Makefile	/^src\/calc_operations.c.s:$/;"	t
+src/calc_operations.i	build/Makefile	/^src\/calc_operations.i: src\/calc_operations.c.i$/;"	t
+src/calc_operations.o	build/Makefile	/^src\/calc_operations.o: src\/calc_operations.c.o$/;"	t
+src/calc_operations.s	build/Makefile	/^src\/calc_operations.s: src\/calc_operations.c.s$/;"	t
+src/calculator.c.i	build/Makefile	/^src\/calculator.c.i:$/;"	t
+src/calculator.c.o	build/Makefile	/^src\/calculator.c.o:$/;"	t
+src/calculator.c.s	build/Makefile	/^src\/calculator.c.s:$/;"	t
+src/calculator.i	build/Makefile	/^src\/calculator.i: src\/calculator.c.i$/;"	t
+src/calculator.o	build/Makefile	/^src\/calculator.o: src\/calculator.c.o$/;"	t
+src/calculator.s	build/Makefile	/^src\/calculator.s: src\/calculator.c.s$/;"	t
+src/directories.c.i	build/Makefile	/^src\/directories.c.i:$/;"	t
+src/directories.c.o	build/Makefile	/^src\/directories.c.o:$/;"	t
+src/directories.c.s	build/Makefile	/^src\/directories.c.s:$/;"	t
+src/directories.i	build/Makefile	/^src\/directories.i: src\/directories.c.i$/;"	t
+src/directories.o	build/Makefile	/^src\/directories.o: src\/directories.c.o$/;"	t
+src/directories.s	build/Makefile	/^src\/directories.s: src\/directories.c.s$/;"	t
+src/equations.c.i	build/Makefile	/^src\/equations.c.i:$/;"	t
+src/equations.c.o	build/Makefile	/^src\/equations.c.o:$/;"	t
+src/equations.c.s	build/Makefile	/^src\/equations.c.s:$/;"	t
+src/equations.i	build/Makefile	/^src\/equations.i: src\/equations.c.i$/;"	t
+src/equations.o	build/Makefile	/^src\/equations.o: src\/equations.c.o$/;"	t
+src/equations.s	build/Makefile	/^src\/equations.s: src\/equations.c.s$/;"	t
+src/files.c.i	build/Makefile	/^src\/files.c.i:$/;"	t
+src/files.c.o	build/Makefile	/^src\/files.c.o:$/;"	t
+src/files.c.s	build/Makefile	/^src\/files.c.s:$/;"	t
+src/files.i	build/Makefile	/^src\/files.i: src\/files.c.i$/;"	t
+src/files.o	build/Makefile	/^src\/files.o: src\/files.c.o$/;"	t
+src/files.s	build/Makefile	/^src\/files.s: src\/files.c.s$/;"	t
+src/main.c.i	build/Makefile	/^src\/main.c.i:$/;"	t
+src/main.c.o	build/Makefile	/^src\/main.c.o:$/;"	t
+src/main.c.s	build/Makefile	/^src\/main.c.s:$/;"	t
+src/main.i	build/Makefile	/^src\/main.i: src\/main.c.i$/;"	t
+src/main.o	build/Makefile	/^src\/main.o: src\/main.c.o$/;"	t
+src/main.s	build/Makefile	/^src\/main.s: src\/main.c.s$/;"	t
 subtract	src/calc_operations.c	/^calc_status_t subtract(int64_t f_num, int64_t s_num, int64_t * p_result)$/;"	f	typeref:typename:calc_status_t
 type	include/calculator.h	/^	integer_type_t type;$/;"	m	struct:__anon4a5d91580408	typeref:typename:integer_type_t
 type	include/equations.h	/^	uint8_t type;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
@@ -231,3 +530,6 @@ validate_equation_format	src/equations.c	/^static equation_status_t validate_equ
 validate_file	src/files.c	/^static file_status_t validate_file(const char * p_file_path)$/;"	f	typeref:typename:file_status_t	file:
 value	include/calculator.h	/^	value_t	   value;$/;"	m	struct:__anon4a5d91580408	typeref:typename:value_t
 value_t	include/calculator.h	/^} value_t;$/;"	t	typeref:union:__anon4a5d9158030a
+volatile	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^# define volatile$/;"	d	file:
+write_header	src/files.c	/^static file_status_t write_header(FILE * p_file, $/;"	f	typeref:typename:file_status_t	file:
+write_solved_equation	src/equations.c	/^static equation_status_t write_solved_equation(FILE * p_file, $/;"	f	typeref:typename:equation_status_t	file:

@@ -64,7 +64,6 @@ calc_status_t calculate_result(operator_t operator,
 							   integer_t * p_result)
 {
 	calc_status_t status = CALC_STATUS_OK;
-	integer_type_t result_type = INTEGER_TYPE_SIGNED;
 
 	if ((NULL == p_f_integer) || (NULL == p_s_integer) || (NULL == p_result))
 	{
@@ -91,7 +90,7 @@ END:
 	return status;
 }
 
-static calc_statuc calculate_arit(operator_t operator,
+static calc_status_t calculate_arit(operator_t operator,
 								  const integer_t * p_f_integer,
 								  const integer_t * p_s_integer,
 								  integer_t * p_result)
@@ -159,7 +158,7 @@ END:
 	return status;
 }
 
-static calc_statuc calculate_bit(operator_t operator,
+static calc_status_t calculate_bit(operator_t operator,
 								 const integer_t * p_f_integer,
 								 const integer_t * p_s_integer,
 								 integer_t * p_result)
@@ -247,47 +246,6 @@ void print_usage(const char * p_name)
 	printf("Usage: %s <number> <operator> <number>\n", p_name);
 	printf("Arithmetic operators: + - * / %%\n");
 	printf("Bitwise operators: & | ^ << >> <<< >>>\n");
-}
-
-void print_error(calc_status_t status)
-{
-	switch (status)
-	{
-		case CALC_STATUS_INVALID_OPERATOR:
-			printf("Error: unsupported operator\n");
-			break;
-
-		case CALC_STATUS_INVALID_INTEGER:
-		   printf("Error: invalid integer type\n");
-	   	   break;
-
-		case CALC_STATUS_INTEGER_OUT_OF_RANGE:
-		   printf("Error: integer is out of the range\n");
-		   break;
-
-		case CALC_STATUS_DIVIDE_BY_ZERO:
-		   printf("Error: division or modulo by zero\n");
-		   break;
-
-		case CALC_STATUS_OVERFLOW:
-		   printf("Error: overflow or underflow\n");
-		   break;
-
-		case CALC_STATUS_INVALID_SHIFT:
-		   printf("Error: shift should be in range from 0 to 31\n");
-		   break;
-
-		case CALC_STATUS_NULL_POINTER:
-		   printf("Error: null pointer\n");
-		   break;
-		
-		case CALC_STATUS_OK:
-		   break;
-
-		default:
-		   printf("Error: unknown error\n");
-		   break;
-	}
 }
 
 void print_result(const integer_t * p_result)

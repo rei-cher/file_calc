@@ -53,8 +53,6 @@ calc_status_t calculate_result(operator_t operator,
 
 void print_result(const integer_t * p_result);
 
-void print_error(calc_status_t status);
-
 void print_usage(const char * p_name);
 
 #endif

@@ -4,18 +4,25 @@
  *
  */
 
+#include <linux/limits.h>
+#include <string.h>
 #include <sys/stat.h>
-#include <limits.h>
 
 #include "files.h"
 #include "equations.h"
 #include "file_status.h"
+#include "errors.h"
+
+#define SINGLE_OBJECT_COUNT 1U
 
 static file_status_t read_header(FILE * p_file, file_header_t * p_header);
+
 static file_status_t validate_file(const char * p_file_path);
 
-file_status_t process_file(const char * p_input_path,
-						   const char * p_output_path)
+static file_status_t write_header(FILE * p_filen, file_header_t * p_header);
+
+file_status_t process_file(const char * p_input_dir,
+						   const char * p_output_dir)
 {
 	FILE * p_input_file = NULL;
 	FILE * p_output_file = NULL;
@@ -26,20 +33,20 @@ file_status_t process_file(const char * p_input_path,
 
 	char output_path[PATH_MAX] = {0};
 
-	if ((NULL == p_input_path) ||
-		(NULL == p_output_path))
+	if ((NULL == p_input_dir) ||
+		(NULL == p_output_dir))
 	{
 		status = FILE_STATUS_NULL_POINTER;
 		goto END;
 	}
 
-	status = validate_file(p_input_path);
+	status = validate_file(p_input_dir);
 	if (FILE_STATUS_OK != status)
 	{
 		goto END;
 	}
 
-	p_input_file = fopen(p_input_path, "rb");
+	p_input_file = fopen(p_input_dir, "rb");
 
 	if (NULL == p_input_file)
 	{
@@ -60,98 +67,80 @@ file_status_t process_file(const char * p_input_path,
 		goto END;
 	}
 
-	if (0 != fseek(p_file, file_header.eq_offset, SEEK_SET))
+	snprintf(output_path,
+			 sizeof(output_path),
+			 "%s/%lu_solved.equ",
+			 p_output_dir,
+			 file_header.file_id);
+
+	p_output_file = fopen(output_path, "wb");
+
+	if (NULL == p_output_file)
+	{
+		status = FILE_STATUS_OPEN_ERROR;
+		goto END;
+	}
+
+	file_header.flag = 0x01U;
+
+	status = write_header(p_output_file, &file_header);
+
+	if (FILE_STATUS_OK != status)
+	{
+		goto END;
+	}
+
+	if (0 != fseek(p_input_file, file_header.eq_offset, SEEK_SET))
 	{
 		status = FILE_STATUS_SEEK_ERROR;
 		goto END;
 	}
 
-	// TODO: calcualte_equations -> implement accepting pointer to output file
-	eq_status = calculate_equations(p_file, file_header.num_of_eq);
+	eq_status = calculate_equations(p_input_file, 
+									p_output_file, 
+									file_header.num_of_eq);
 
 	if (EQ_STATUS_OK != eq_status)
 	{
+		print_error(ERROR_TYPE_EQUATION, eq_status);
 		status = FILE_STATUS_READ_ERROR;
 		goto END;
 	}
 
 END:
-	if (NULL != p_file)
+	if (NULL != p_input_file)
 	{
-		fclose(p_file);
-		p_file = NULL;
+		fclose(p_input_file);
+		p_input_file = NULL;
 	}
 
-	return status;
-}
-
-file_status_t create_file(const char * p_file_path)
-{
-	file_status_t status = FILE_STATUS_OK;
-}
-
-static file_status_t read_header(FILE * p_file, file_header_t * p_header)
-{
-	file_status_t status = FILE_STATUS_OK;
-
-	if ((NULL == p_file) ||
-		(NULL == p_header))
+	if (NULL != p_output_file)
 	{
-		status = FILE_STATUS_NULL_POINTER;
-		goto END;
+		fclose(p_output_file);
+		p_output_file = NULL;
 	}
 
-	if (1U != fread(&p_header->magic, sizeof(p_header->magic), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->file_id, sizeof(p_header->file_id), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->num_of_eq, sizeof(p_header->num_of_eq), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->flag, sizeof(p_header->flag), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->eq_offset, sizeof(p_header->eq_offset), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-	if (1U != fread(&p_header->opt_headers, sizeof(p_header->opt_headers), 1U, p_file))
-	{
-		status = FILE_STATUS_READ_ERROR;
-		goto END;
-	}
-
-END:
 	return status;
 }
 
 static file_status_t validate_file(const char * p_file_path)
 {
 	struct stat file_stat_t = {0};
-
-	// TODO: implemenmt file extension checker
+	const char * p_extension = NULL;
 
 	file_status_t status = FILE_STATUS_OK;
 
 	if (NULL == p_file_path)
 	{
 		status = FILE_STATUS_NULL_POINTER;
+		goto END;
+	}
+
+	p_extension = strrchr(p_file_path, '.');
+	if ((NULL == p_extension) ||
+		(0 != strcmp(p_extension, ".equ")))
+	{
+		status = FILE_STATUS_NOT_EQU;
 		goto END;
 	}
 
@@ -176,5 +165,108 @@ static file_status_t validate_file(const char * p_file_path)
 END:
 	return status;
 
+}
+
+static file_status_t write_header(FILE * p_file, 
+								  file_header_t * p_header)
+{
+	file_status_t status = FILE_STATUS_OK;
+
+	if ((NULL == p_file) ||
+		(NULL == p_header))
+	{
+		status = FILE_STATUS_NULL_POINTER;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_header->magic, sizeof(p_header->magic), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_header->file_id, sizeof(p_header->file_id), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_header->num_of_eq, sizeof(p_header->num_of_eq), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_header->flag, sizeof(p_header->flag), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_header->eq_offset, sizeof(p_header->eq_offset), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_header->opt_headers, sizeof(p_header->opt_headers), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+END:
+	return status;
+}
+
+static file_status_t read_header(FILE * p_file, file_header_t * p_header)
+{
+	file_status_t status = FILE_STATUS_OK;
+
+	if ((NULL == p_file) ||
+		(NULL == p_header))
+	{
+		status = FILE_STATUS_NULL_POINTER;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fread(&p_header->magic, sizeof(p_header->magic), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fread(&p_header->file_id, sizeof(p_header->file_id), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fread(&p_header->num_of_eq, sizeof(p_header->num_of_eq), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fread(&p_header->flag, sizeof(p_header->flag), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fread(&p_header->eq_offset, sizeof(p_header->eq_offset), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fread(&p_header->opt_headers, sizeof(p_header->opt_headers), SINGLE_OBJECT_COUNT, p_file))
+	{
+		status = FILE_STATUS_READ_ERROR;
+		goto END;
+	}
+
+END:
+	return status;
 }
 /*** end of the file ***/

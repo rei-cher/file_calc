@@ -10,15 +10,23 @@
 #include "equations.h"
 #include "equation_status.h"
 #include "calculator.h"
+#include "errors.h"
 
 #define SINGLE_OBJECT_COUNT 1U
 
-static equation_status_t validate_format(FILE * p_file, equation_t * p_equation);
+static equation_status_t validate_equation_format(FILE * p_file, 
+												  equation_t * p_equation);
+
 static equation_status_t solve_equation(equation_t * p_equation,
 										integer_t * p_result);
+
 static equation_status_t read_equation(FILE * p_file, equation_t * p_equation);
+
 static equation_status_t get_equation_operator(uint8_t operator_code,
 											   operator_t * p_operator);
+
+static equation_status_t write_solved_equation(FILE * p_file, 
+											   const solved_t * p_solved);
 
 
 equation_status_t calculate_equations(FILE * p_input_file,
@@ -42,10 +50,11 @@ equation_status_t calculate_equations(FILE * p_input_file,
 	{
 		unsolved_eq = (equation_t){0};
 		solved_eq = (solved_t){0};
+		result = (integer_t){0};
 
 		status = validate_equation_format(p_input_file, &unsolved_eq);
 
-		if (EQ_STATUS_OK != eq_status)
+		if (EQ_STATUS_OK != status)
 		{
 			status = EQ_STATUS_READ_ERROR;
 			goto END;
@@ -55,7 +64,7 @@ equation_status_t calculate_equations(FILE * p_input_file,
 
 		status = solve_equation(&unsolved_eq, &result);
 
-		if (EQ_STATUS_OK == eq_status)
+		if (EQ_STATUS_OK == status)
 		{
 			solved_eq.flag = 0x01U;
 			solved_eq.type = result.type;
@@ -64,15 +73,14 @@ equation_status_t calculate_equations(FILE * p_input_file,
 		else
 		{
 			solved_eq.flag = 0x00U;
-			solved_eq.type = 0x00U;
-			solved_eq.solution = 0U;
+			solved_eq.type = (integer_t)0x00U;
+			solved_eq.solution = (integer_t)0U;
 		}
 
-		file_status = write_solved_eq(p_output_file, &solved_eq);
+		status = write_solved_equation(p_output_file, &solved_eq);
 
-		if (FILE_STATUS_OK != file_status)
+		if (EQ_STATUS_OK != status)
 		{
-			// TODO: set status to something
 			goto END;
 		}
 	}
@@ -186,6 +194,7 @@ static equation_status_t solve_equation(equation_t * p_equation,
 
 	if (CALC_STATUS_OK != calc_status)
 	{
+		print_error(ERROR_TYPE_CALCULATOR, calc_status);
 		status = EQ_STATUS_NOT_SOLVED;
 		goto END;
 	}
@@ -213,6 +222,59 @@ static equation_status_t get_equation_operator(uint8_t operator_code,
 	}
 
 	* p_operator = (operator_t)operator_code;
+
+END:
+	return status;
+}
+
+static equation_status_t write_solved_equation(FILE * p_file, 
+											   const solved_t * p_solved)
+{
+	equation_status_t status = EQ_STATUS_OK;
+
+	if ((NULL == p_file) ||
+		(NULL == p_solved))
+	{
+		status = EQ_STATUS_NULL_POINTER;
+		goto END;
+	}
+
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_solved->id, 
+									  sizeof(p_solved->id), 
+									  SINGLE_OBJECT_COUNT, 
+									  p_file))
+	{
+		status = EQ_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_solved->flag, 
+									  sizeof(p_solved->flag), 
+									  SINGLE_OBJECT_COUNT, 
+									  p_file))
+	{
+		status = EQ_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_solved->type, 
+									  sizeof(p_solved->type), 
+									  SINGLE_OBJECT_COUNT, 
+									  p_file))
+	{
+		status = EQ_STATUS_WRITE_ERROR;
+		goto END;
+	}
+
+	if (SINGLE_OBJECT_COUNT != fwrite(&p_solved->solution,
+					sizeof(p_solved->solution),
+					SINGLE_OBJECT_COUNT,
+					p_file))
+	{
+		status = EQ_STATUS_WRITE_ERROR;
+		goto END;
+	}
 
 END:
 	return status;

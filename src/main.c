@@ -6,8 +6,10 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+
 #include "directories.h"
 #include "dir_status.h"
+#include "errors.h"
 
 #define PROGRAM_NAME 0
 #define INPUT_DIR 1
@@ -27,17 +29,17 @@ int main(int argc, char ** argv)
 
 	if (NUMBER_OF_ARGUMENTS != argc)
 	{
-		printf(stderr, "Incorrect number of arguments\n");
-		print_uasge(argv[PROGRAM_NAME]);
+		fprintf(stderr, "Incorrect number of arguments\n");
+		print_usage(argv[PROGRAM_NAME]);
 		goto END;
 	}
 
 	dir_status = prepare_directories(argv[INPUT_DIR],
 									 argv[OUTPUT_DIR]);
 
-	if (DIR_STATUS_OK != output_dir_status)
+	if (DIR_STATUS_OK != dir_status)
 	{
-		print_error(dir_status);
+		print_error(ERROR_TYPE_DIRECTORY, dir_status);
 		goto END;
 	}
 
@@ -46,9 +48,11 @@ int main(int argc, char ** argv)
 
 	if (DIR_STATUS_OK != dir_status)
 	{
-		print_error(dir_status);
+		print_error(ERROR_TYPE_DIRECTORY, dir_status);
 		goto END;
 	}
+
+	exit_status = EXIT_SUCCESS;
 
 END:
 	return exit_status;

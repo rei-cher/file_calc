@@ -7,6 +7,9 @@
 #ifndef DIR_STATUS_H
 #define DIR_STATUS_H
 
+/**
+ * @brief Directory status list
+ */
 typedef enum
 {
 	DIR_STATUS_OK = 0,
@@ -15,7 +18,8 @@ typedef enum
 	DIR_STATUS_STAT_ERROR,
 	DIR_STATUS_NOT_DIRECTORY,
 	DIR_STATUS_WRONG_PERMISSIONS,
-	DIR_STATUS_CANT_CREATE
+	DIR_STATUS_CANT_CREATE,
+	DIR_STATUS_OPEN_ERROR
 } dir_status_t;
 
 #endif

@@ -4,16 +4,17 @@
  *
  */
 
+#include <linux/limits.h>
 #include <sys/stat.h>
 #include <dirent.h>
-#include <limits.h>
 
+#include "files.h"
+#include "errors.h"
 #include "dir_status.h"
 #include "directories.h"
 
 static dir_status_t create_dir(const char * p_dir);
 static dir_status_t validate_directory(const char * p_dir);
-static int is_equ_file(const char * p_filename);
 
 dir_status_t prepare_directories(const char * p_input_dir,
 								 const char * p_output_dir)
@@ -32,7 +33,6 @@ dir_status_t prepare_directories(const char * p_input_dir,
 
 	if (DIR_STATUS_OK != status)
 	{
-		print_error(status);
 		goto END;
 	}
 
@@ -40,7 +40,7 @@ dir_status_t prepare_directories(const char * p_input_dir,
 
 	if (DIR_STATUS_DOESNT_EXIST == status)
 	{
-		status = create_dir(argv[OUTPUT_DIR]);
+		status = create_dir(p_output_dir);
 	}
 
 END:
@@ -51,14 +51,15 @@ dir_status_t process_directories(const char * p_input_dir,
 								 const char * p_output_dir)
 {
 	dir_status_t status = DIR_STATUS_OK;
+	file_status_t file_status = FILE_STATUS_OK;
 
 	char input_path[PATH_MAX] = {0};
 
 	DIR * p_dir = NULL;
 	struct dirent * p_file = NULL;
 
-	if ((NULL == p_input_file) || 
-		(NULL == P_output_file))
+	if ((NULL == p_input_dir) || 
+		(NULL == p_output_dir))
 	{
 		status = DIR_STATUS_NULL_POINTER;
 		goto END;
@@ -81,15 +82,21 @@ dir_status_t process_directories(const char * p_input_dir,
 				 p_file->d_name);
 
 		file_status = process_file(input_path,
-								   p_output_path);
+								   p_output_dir);
 
 		if (FILE_STATUS_OK != file_status)
 		{
-			print_error(file_status);
+			print_error(ERROR_TYPE_FILE, file_status);
 		}
 	}
 
 END:
+	if (NULL != p_dir)
+	{
+		closedir(p_dir);
+		p_dir = NULL;
+	}
+
 	return status;
 }
 
