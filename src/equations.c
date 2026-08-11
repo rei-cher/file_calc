@@ -20,8 +20,6 @@ static equation_status_t validate_equation_format(FILE * p_file,
 static equation_status_t solve_equation(equation_t * p_equation,
 										integer_t * p_result);
 
-static equation_status_t read_equation(FILE * p_file, equation_t * p_equation);
-
 static equation_status_t get_equation_operator(uint8_t operator_code,
 											   operator_t * p_operator);
 
@@ -73,8 +71,8 @@ equation_status_t calculate_equations(FILE * p_input_file,
 		else
 		{
 			solved_eq.flag = 0x00U;
-			solved_eq.type = (integer_t)0x00U;
-			solved_eq.solution = (integer_t)0U;
+			solved_eq.type = 0x00U;
+			solved_eq.solution = (value_t){0U};
 		}
 
 		status = write_solved_equation(p_output_file, &solved_eq);

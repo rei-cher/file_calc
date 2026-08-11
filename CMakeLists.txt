@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 
 project(
-    simple_calc
+    file_calc
     VERSION 1.0.0
     LANGUAGES C)
 
@@ -11,7 +11,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS        OFF)
 
 # Define executable name
-set(EXECUTABLE_NAME  simplecalc)
+set(EXECUTABLE_NAME  filecalc)
 
 add_executable(
 	${EXECUTABLE_NAME}
@@ -22,6 +22,7 @@ add_executable(
 	src/equations.c
 	src/calc_operations.c
 	src/bit_operations.c
+	src/errors.c
 )
 
 target_include_directories(

@@ -13,7 +13,7 @@
 static void print_dir_error(dir_status_t status);
 static void print_file_error(file_status_t status);
 static void print_equation_error(equation_status_t status);
-static void print_calc_error(calc_statas_t status);
+static void print_calc_error(calc_status_t status);
 
 void print_error(error_type_t error_type, int status)
 {
@@ -176,7 +176,6 @@ static void print_equation_error(equation_status_t status)
                     "Equation error: unknown status\n");
             break;
     }
-	FILE_STATUS_NOT_EQU
 }
 
 static void print_calc_error(calc_status_t status)

@@ -214,14 +214,20 @@ CMAKE_C_STANDARD	CMakeLists.txt	/^set(CMAKE_C_STANDARD          17)$/;"	v
 CMAKE_C_STANDARD_COMPUTED_DEFAULT	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "23")$/;"	v
 CMAKE_C_STANDARD_LATEST	build/CMakeFiles/4.4.2/CMakeCCompiler.cmake	/^set(CMAKE_C_STANDARD_LATEST "23")$/;"	v
 CMAKE_C_STANDARD_REQUIRED	CMakeLists.txt	/^set(CMAKE_C_STANDARD_REQUIRED ON)$/;"	v
+CMAKE_DEPENDS_DEPENDENCY_FILES	build/CMakeFiles/filecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_DEPENDENCY_FILES$/;"	v
 CMAKE_DEPENDS_DEPENDENCY_FILES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_DEPENDENCY_FILES$/;"	v
 CMAKE_DEPENDS_GENERATOR	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")$/;"	v
+CMAKE_DEPENDS_IN_PROJECT_ONLY	build/CMakeFiles/filecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)$/;"	v
 CMAKE_DEPENDS_IN_PROJECT_ONLY	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)$/;"	v
+CMAKE_DEPENDS_LANGUAGES	build/CMakeFiles/filecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_LANGUAGES$/;"	v
 CMAKE_DEPENDS_LANGUAGES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_DEPENDS_LANGUAGES$/;"	v
 CMAKE_DEPEND_INFO_FILES	build/CMakeFiles/Makefile.cmake	/^set(CMAKE_DEPEND_INFO_FILES$/;"	v
 CMAKE_FORCE_UNIX_PATHS	build/CMakeFiles/CMakeDirectoryInformation.cmake	/^set(CMAKE_FORCE_UNIX_PATHS 1)$/;"	v
+CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES	build/CMakeFiles/filecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES$/;"	v
 CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES$/;"	v
+CMAKE_Fortran_TARGET_LINKED_INFO_FILES	build/CMakeFiles/filecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES$/;"	v
 CMAKE_Fortran_TARGET_LINKED_INFO_FILES	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES$/;"	v
+CMAKE_Fortran_TARGET_MODULE_DIR	build/CMakeFiles/filecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_MODULE_DIR "")$/;"	v
 CMAKE_Fortran_TARGET_MODULE_DIR	build/CMakeFiles/simplecalc.dir/DependInfo.cmake	/^set(CMAKE_Fortran_TARGET_MODULE_DIR "")$/;"	v
 CMAKE_HOST_SYSTEM	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM "Linux-7.1.5-arch1-2")$/;"	v
 CMAKE_HOST_SYSTEM_NAME	build/CMakeFiles/4.4.2/CMakeSystem.cmake	/^set(CMAKE_HOST_SYSTEM_NAME "Linux")$/;"	v
@@ -311,7 +317,8 @@ ERROR_TYPE_CALCULATOR	include/errors.h	/^	ERROR_TYPE_CALCULATOR$/;"	e	enum:__ano
 ERROR_TYPE_DIRECTORY	include/errors.h	/^	ERROR_TYPE_DIRECTORY = 0,$/;"	e	enum:__anon50192deb0103
 ERROR_TYPE_EQUATION	include/errors.h	/^	ERROR_TYPE_EQUATION,$/;"	e	enum:__anon50192deb0103
 ERROR_TYPE_FILE	include/errors.h	/^	ERROR_TYPE_FILE,$/;"	e	enum:__anon50192deb0103
-EXECUTABLE_NAME	CMakeLists.txt	/^set(EXECUTABLE_NAME  simplecalc)$/;"	v
+EXECUTABLE_NAME	CMakeLists.txt	/^set(EXECUTABLE_NAME  filecalc)$/;"	v
+EXTENSION_SIZE	src/files.c	/^#define EXTENSION_SIZE /;"	d	file:
 FILES_H	include/files.h	/^#define FILES_H$/;"	d
 FILE_STATUS_DOESNT_EXIST	include/file_status.h	/^	FILE_STATUS_DOESNT_EXIST,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_H	include/file_status.h	/^#define FILE_STATUS_H$/;"	d
@@ -410,14 +417,18 @@ equation	include/equations.h	/^	serialized_eq_t equation;$/;"	m	struct:__anon13b
 equation_status_t	include/equation_status.h	/^} equation_status_t;$/;"	t	typeref:enum:__anon7f708b970103
 equation_t	include/equations.h	/^} equation_t;$/;"	t	typeref:struct:__anon13b65d670208
 error_type_t	include/errors.h	/^} error_type_t;$/;"	t	typeref:enum:__anon50192deb0103
+file_calc	CMakeLists.txt	/^    file_calc$/;"	p
 file_header_t	include/files.h	/^} file_header_t;$/;"	t	typeref:struct:__anone4a1c5010108
 file_id	include/files.h	/^	uint64_t file_id;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint64_t
 file_status_t	include/file_status.h	/^} file_status_t;$/;"	t	typeref:enum:__anon1195beb10103
+filecalc	build/Makefile	/^filecalc: cmake_check_build_system$/;"	t
+filecalc/fast	build/Makefile	/^filecalc\/fast:$/;"	t
 first_operand	include/equations.h	/^	value_t first_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:value_t
 flag	include/equations.h	/^	uint8_t flag;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint8_t
 flag	include/equations.h	/^	uint8_t flag;$/;"	m	struct:__anon13b65d670308	typeref:typename:uint8_t
 flag	include/files.h	/^	uint8_t flag;$/;"	m	struct:__anone4a1c5010108	typeref:typename:uint8_t
 get_equation_operator	src/equations.c	/^static equation_status_t get_equation_operator(uint8_t operator_code,$/;"	f	typeref:typename:equation_status_t	file:
+get_filename	src/files.c	/^static file_status_t get_filename(const char * p_file_path,$/;"	f	typeref:typename:file_status_t	file:
 get_integer_type	src/calculator.c	/^integer_type_t get_integer_type(operator_t operator)$/;"	f	typeref:typename:integer_type_t
 help	build/Makefile	/^help:$/;"	t
 id	include/equations.h	/^	uint32_t id;$/;"	m	struct:__anon13b65d670208	typeref:typename:uint32_t
@@ -454,11 +465,11 @@ padding	include/equations.h	/^	uint8_t padding[PADDING_SIZE];$/;"	m	struct:__ano
 preinstall	build/Makefile	/^preinstall: all$/;"	t
 preinstall/fast	build/Makefile	/^preinstall\/fast:$/;"	t
 prepare_directories	src/directories.c	/^dir_status_t prepare_directories(const char * p_input_dir,$/;"	f	typeref:typename:dir_status_t
-print_calc_error	errors.c	/^static void print_calc_error(calc_status_t status)$/;"	f	typeref:typename:void	file:
-print_dir_error	errors.c	/^static void print_dir_error(dir_status_t status)$/;"	f	typeref:typename:void	file:
-print_equation_error	errors.c	/^static void print_equation_error(equation_status_t status)$/;"	f	typeref:typename:void	file:
-print_error	errors.c	/^void print_error(error_type_t error_type, int status)$/;"	f	typeref:typename:void
-print_file_error	errors.c	/^static void print_file_error(file_status_t status)$/;"	f	typeref:typename:void	file:
+print_calc_error	src/errors.c	/^static void print_calc_error(calc_status_t status)$/;"	f	typeref:typename:void	file:
+print_dir_error	src/errors.c	/^static void print_dir_error(dir_status_t status)$/;"	f	typeref:typename:void	file:
+print_equation_error	src/errors.c	/^static void print_equation_error(equation_status_t status)$/;"	f	typeref:typename:void	file:
+print_error	src/errors.c	/^void print_error(error_type_t error_type, int status)$/;"	f	typeref:typename:void
+print_file_error	src/errors.c	/^static void print_file_error(file_status_t status)$/;"	f	typeref:typename:void	file:
 print_result	src/calculator.c	/^void print_result(const integer_t * p_result)$/;"	f	typeref:typename:void
 print_usage	src/calculator.c	/^void print_usage(const char * p_name)$/;"	f	typeref:typename:void
 print_usage	src/main.c	/^static void print_usage(const char * p_name)$/;"	f	typeref:typename:void	file:
@@ -473,9 +484,6 @@ rebuild_cache/fast	build/Makefile	/^rebuild_cache\/fast: rebuild_cache$/;"	t
 second_operand	include/equations.h	/^	value_t second_operand;$/;"	m	struct:__anon13b65d670108	typeref:typename:value_t
 serialized_eq_t	include/equations.h	/^} serialized_eq_t;$/;"	t	typeref:struct:__anon13b65d670108
 signed_value	include/calculator.h	/^	int64_t signed_value;$/;"	m	union:__anon4a5d9158030a	typeref:typename:int64_t
-simple_calc	CMakeLists.txt	/^    simple_calc$/;"	p
-simplecalc	build/Makefile	/^simplecalc: cmake_check_build_system$/;"	t
-simplecalc/fast	build/Makefile	/^simplecalc\/fast:$/;"	t
 solution	include/equations.h	/^	value_t solution;$/;"	m	struct:__anon13b65d670308	typeref:typename:value_t
 solve_equation	src/equations.c	/^static equation_status_t solve_equation(equation_t * p_equation,$/;"	f	typeref:typename:equation_status_t	file:
 solved_t	include/equations.h	/^} solved_t;$/;"	t	typeref:struct:__anon13b65d670308
@@ -509,6 +517,12 @@ src/equations.c.s	build/Makefile	/^src\/equations.c.s:$/;"	t
 src/equations.i	build/Makefile	/^src\/equations.i: src\/equations.c.i$/;"	t
 src/equations.o	build/Makefile	/^src\/equations.o: src\/equations.c.o$/;"	t
 src/equations.s	build/Makefile	/^src\/equations.s: src\/equations.c.s$/;"	t
+src/errors.c.i	build/Makefile	/^src\/errors.c.i:$/;"	t
+src/errors.c.o	build/Makefile	/^src\/errors.c.o:$/;"	t
+src/errors.c.s	build/Makefile	/^src\/errors.c.s:$/;"	t
+src/errors.i	build/Makefile	/^src\/errors.i: src\/errors.c.i$/;"	t
+src/errors.o	build/Makefile	/^src\/errors.o: src\/errors.c.o$/;"	t
+src/errors.s	build/Makefile	/^src\/errors.s: src\/errors.c.s$/;"	t
 src/files.c.i	build/Makefile	/^src\/files.c.i:$/;"	t
 src/files.c.o	build/Makefile	/^src\/files.c.o:$/;"	t
 src/files.c.s	build/Makefile	/^src\/files.c.s:$/;"	t

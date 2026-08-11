@@ -7,6 +7,7 @@
 #include <linux/limits.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <string.h>
 
 #include "files.h"
 #include "errors.h"
@@ -75,6 +76,11 @@ dir_status_t process_directories(const char * p_input_dir,
 
 	while (NULL != (p_file = readdir(p_dir)))
 	{
+		if ((0 == strcmp(p_file->d_name, ".")) ||
+			(0 == strcmp(p_file->d_name, "..")))
+		{
+			continue;
+		}
 		snprintf(input_path,
 				 sizeof(input_path),
 				 "%s/%s",
