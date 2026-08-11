@@ -10,8 +10,8 @@ tags
 *.equ
 
 # Directories
-input_equ
-output_equ
+input_equ/
+output_equ/
 
 # Prerequisites
 *.d
