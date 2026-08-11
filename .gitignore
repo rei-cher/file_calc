@@ -9,6 +9,10 @@ tags
 # equ files
 *.equ
 
+# Directories
+input_equ
+output_equ
+
 # Prerequisites
 *.d
 
