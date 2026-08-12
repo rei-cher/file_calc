@@ -8,6 +8,9 @@
 #ifndef CALC_STATUS_H
 #define CALC_STATUS_H
 
+/**
+ * @brief List of statuses for calculation operations
+ */
 typedef enum
 {
 	CALC_STATUS_OK = 0,

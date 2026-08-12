@@ -240,23 +240,4 @@ END:
 	return status;
 }
 
-void print_usage(const char * p_name)
-{
-	printf("Incorrect supply of arguments.\n");
-	printf("Usage: %s <number> <operator> <number>\n", p_name);
-	printf("Arithmetic operators: + - * / %%\n");
-	printf("Bitwise operators: & | ^ << >> <<< >>>\n");
-}
-
-void print_result(const integer_t * p_result)
-{
-	if (INTEGER_TYPE_SIGNED == p_result->type)
-	{
-		printf("%d\n", p_result->value.signed_value);
-	}
-	else
-	{
-		printf("%u\n", p_result->value.unsigned_value);
-	}
-}
 /*** end of the file ***/

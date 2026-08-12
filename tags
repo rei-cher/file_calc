@@ -470,8 +470,6 @@ print_dir_error	src/errors.c	/^static void print_dir_error(dir_status_t status)$
 print_equation_error	src/errors.c	/^static void print_equation_error(equation_status_t status)$/;"	f	typeref:typename:void	file:
 print_error	src/errors.c	/^void print_error(error_type_t error_type, int status)$/;"	f	typeref:typename:void
 print_file_error	src/errors.c	/^static void print_file_error(file_status_t status)$/;"	f	typeref:typename:void	file:
-print_result	src/calculator.c	/^void print_result(const integer_t * p_result)$/;"	f	typeref:typename:void
-print_usage	src/calculator.c	/^void print_usage(const char * p_name)$/;"	f	typeref:typename:void
 print_usage	src/main.c	/^static void print_usage(const char * p_name)$/;"	f	typeref:typename:void	file:
 process_directories	src/directories.c	/^dir_status_t process_directories(const char * p_input_dir,$/;"	f	typeref:typename:dir_status_t
 process_file	src/files.c	/^file_status_t process_file(const char * p_input_dir,$/;"	f	typeref:typename:file_status_t
