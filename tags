@@ -136,6 +136,7 @@ $(VERBOSE)MAKESILENT	build/Makefile	/^$(VERBOSE)MAKESILENT = -s$/;"	m
 %	build/Makefile	/^% : SCCS\/s.%$/;"	t
 %	build/Makefile	/^% : s.%$/;"	t
 0	build/CMakeFiles/InstallScripts.json	/^		"\/home\/reicher\/Projects\/tool_dev_projects\/file_calc\/build\/cmake_install.cmake"$/;"	s	array:InstallScripts
+1. Build	README.md	/^## 1. Build$/;"	s	chapter:Instruction
 ARCHITECTURE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#   define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/4.4.2/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID$/;"	d	file:
@@ -319,6 +320,7 @@ ERROR_TYPE_EQUATION	include/errors.h	/^	ERROR_TYPE_EQUATION,$/;"	e	enum:__anon50
 ERROR_TYPE_FILE	include/errors.h	/^	ERROR_TYPE_FILE,$/;"	e	enum:__anon50192deb0103
 EXECUTABLE_NAME	CMakeLists.txt	/^set(EXECUTABLE_NAME  filecalc)$/;"	v
 EXTENSION_SIZE	src/files.c	/^#define EXTENSION_SIZE /;"	d	file:
+Execute	README.md	/^## Execute$/;"	s	chapter:Instruction
 FILES_H	include/files.h	/^#define FILES_H$/;"	d
 FILE_STATUS_DOESNT_EXIST	include/file_status.h	/^	FILE_STATUS_DOESNT_EXIST,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_H	include/file_status.h	/^#define FILE_STATUS_H$/;"	d
@@ -340,7 +342,7 @@ INPUT_DIR	src/main.c	/^#define INPUT_DIR /;"	d	file:
 INTEGER_TYPE_SIGNED	include/calculator.h	/^	INTEGER_TYPE_SIGNED = 0x01U,$/;"	e	enum:__anon4a5d91580203
 INTEGER_TYPE_UNSIGNED	include/calculator.h	/^	INTEGER_TYPE_UNSIGNED = 0x02U$/;"	e	enum:__anon4a5d91580203
 InstallScripts	build/CMakeFiles/InstallScripts.json	/^	"InstallScripts" : $/;"	a
-Instructions	README.md	/^# Instructions$/;"	c
+Instruction	README.md	/^# Instruction$/;"	c
 NUMBER_OF_ARGUMENTS	src/main.c	/^#define NUMBER_OF_ARGUMENTS /;"	d	file:
 OPERATOR_ADD	include/calculator.h	/^	OPERATOR_ADD = 0x01U,$/;"	e	enum:__anon4a5d91580103
 OPERATOR_AND	include/calculator.h	/^	OPERATOR_AND = 0x08U,$/;"	e	enum:__anon4a5d91580103
