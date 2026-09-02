@@ -322,6 +322,7 @@ EXECUTABLE_NAME	CMakeLists.txt	/^set(EXECUTABLE_NAME  filecalc)$/;"	v
 EXTENSION_SIZE	src/files.c	/^#define EXTENSION_SIZE /;"	d	file:
 Execute	README.md	/^## Execute$/;"	s	chapter:Instruction
 FILES_H	include/files.h	/^#define FILES_H$/;"	d
+FILE_PERMISSION	src/files.c	/^#define FILE_PERMISSION /;"	d	file:
 FILE_STATUS_DOESNT_EXIST	include/file_status.h	/^	FILE_STATUS_DOESNT_EXIST,$/;"	e	enum:__anon1195beb10103
 FILE_STATUS_H	include/file_status.h	/^#define FILE_STATUS_H$/;"	d
 FILE_STATUS_INVALID_MAGIC	include/file_status.h	/^	FILE_STATUS_INVALID_MAGIC,$/;"	e	enum:__anon1195beb10103

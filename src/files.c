@@ -15,13 +15,45 @@
 
 #define SINGLE_OBJECT_COUNT 1U
 #define EXTENSION_SIZE 4U
+#define FILE_PERMISSION 0644U
 
+/**
+ * @brief Reads and validates file header
+ *
+ * @param p_file
+ * @param p_header
+ *
+ * @return Returns file_status_t with file status
+ */
 static file_status_t read_header(FILE * p_file, file_header_t * p_header);
 
+/**
+ * @brief Validates file by extension and permissions 
+ *
+ * @param p_file_path
+ *
+ * @return Return file_status_t with file status
+ */
 static file_status_t validate_file(const char * p_file_path);
 
+/**
+ * @brief Creates file header for the new file
+ *
+ * @param p_filen
+ * @param p_header
+ *
+ * @return Return file_status_t with file status
+ */
 static file_status_t write_header(FILE * p_filen, file_header_t * p_header);
 
+/**
+ * @brief Gets the file name of the processing file 
+ *
+ * @param p_file_path
+ * @param pp_file_name
+ *
+ * @return Retutns file_status_t with file status
+ */
 static file_status_t get_filename(const char * p_file_path,
 								  const char ** pp_file_name);
 
@@ -169,7 +201,7 @@ static file_status_t validate_file(const char * p_file_path)
 		goto END;
 	}
 
-	if (0644U != (file_stat_t.st_mode & 0644U))
+	if (FILE_PERMISSION != (file_stat_t.st_mode & FILE_PERMISSION))
 	{
 		status = FILE_STATUS_WRONG_PERMISSIONS;
 		goto END;

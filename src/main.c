@@ -16,6 +16,11 @@
 #define OUTPUT_DIR 2
 #define NUMBER_OF_ARGUMENTS 3
 
+/**
+ * @brief Prints usage
+ *
+ * @param p_name
+ */
 static void print_usage(const char * p_name)
 {
 	printf("Usage: %s <input directory> <output directory>\n", p_name);
