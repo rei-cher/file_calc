@@ -10,9 +10,32 @@
 
 #include "errors.h"
 
+/**
+ * @brief Prints directory error message based on the status
+ *
+ * @param status
+ */
 static void print_dir_error(dir_status_t status);
+
+/**
+ * @brief Prints file error message based on the status
+ *
+ * @param status
+ */
 static void print_file_error(file_status_t status);
+
+/**
+ * @brief Prints equation error based on the status
+ *
+ * @param status
+ */
 static void print_equation_error(equation_status_t status);
+
+/**
+ * @brief Prints calculation error based on the status
+ *
+ * @param status
+ */
 static void print_calc_error(calc_status_t status);
 
 void print_error(error_type_t error_type, int status)

@@ -14,15 +14,47 @@
 
 #define SINGLE_OBJECT_COUNT 1U
 
+/**
+ * @brief Validates equation format
+ *
+ * @param p_file
+ * @param p_equation
+ *
+ * @return Returns equation_status_t with equation state status
+ */
 static equation_status_t validate_equation_format(FILE * p_file, 
 												  equation_t * p_equation);
 
+/**
+ * @brief Solves equation
+ *
+ * @param p_equation
+ * @param p_result
+ *
+ * @return Returns equation_status_t with equation state status
+ */
 static equation_status_t solve_equation(equation_t * p_equation,
 										integer_t * p_result);
 
+/**
+ * @brief Validates and determines the operator in the equation 
+ *
+ * @param operator_code
+ * @param p_operator
+ *
+ * @return Returns equation_status_t with equation state status
+ */
 static equation_status_t get_equation_operator(uint8_t operator_code,
 											   operator_t * p_operator);
 
+/**
+ * @brief Validates each part of the header and writes it to the file
+ *
+ * @param p_file
+ * @param p_solved
+ *
+ * @return Returns equation_status_t with equation state status
+ */
 static equation_status_t write_solved_equation(FILE * p_file, 
 											   const solved_t * p_solved);
 

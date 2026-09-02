@@ -14,7 +14,24 @@
 #include "dir_status.h"
 #include "directories.h"
 
+#define DIRECTORY_PERMISSIONS 0755U
+
+/**
+ * @brief Creates a directory with right permissions
+ *
+ * @param p_dir
+ *
+ * @return Returns dir_status_t with directory state status
+ */
 static dir_status_t create_dir(const char * p_dir);
+
+/**
+ * @brief Validates directory
+ *
+ * @param p_dir
+ *
+ * @return Returns dir_status_t with directory state status 
+ */
 static dir_status_t validate_directory(const char * p_dir);
 
 dir_status_t prepare_directories(const char * p_input_dir,
@@ -117,7 +134,7 @@ static dir_status_t create_dir(const char * p_dir)
 		goto END;
 	}
 
-	if (0 != mkdir(p_dir, 0755))
+	if (0 != mkdir(p_dir, DIRECTORY_PERMISSIONS))
 	{
 		status = DIR_STATUS_CANT_CREATE;
 	}
@@ -153,7 +170,7 @@ static dir_status_t validate_directory(const char * p_dir)
 	}
 	
 	if ((DIR_STATUS_OK == status) && 
-		(0755U != (dir_stat_t.st_mode & 0755U)))
+		(DIRECTORY_PERMISSIONS != (dir_stat_t.st_mode & DIRECTORY_PERMISSIONS)))
 	{
 		status = DIR_STATUS_WRONG_PERMISSIONS;
 		goto END;

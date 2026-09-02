@@ -18,11 +18,29 @@
 #define FIRST_CHARACTER 0
 
 
+/**
+ * @brief Calculates arithmetic operation based on the operator
+ *
+ * @param operator
+ * @param p_f_integer
+ * @param 
+ *
+ * @return Returns calc_status_t with calculation state status
+ */
 static calc_status_t calculate_arit(operator_t operator,
 								  const integer_t * p_f_integer,
 								  const integer_t * p_s_integer,
 								  integer_t * p_result);
 
+/**
+ * @brief Calculates bitwise operation based on the operator
+ *
+ * @param operator
+ * @param p_f_integer
+ * @param 
+ *
+ * @return Returns calc_status_t with calculation state status
+ */
 static calc_status_t calculate_bit(operator_t operator,
 								 const integer_t * p_f_integer,
 								 const integer_t * p_s_integer,
